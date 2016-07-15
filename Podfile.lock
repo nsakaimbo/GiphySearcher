@@ -1,0 +1,40 @@
+PODS:
+  - Alamofire (3.4.1)
+  - FLAnimatedImage (1.0.12)
+  - Moya/Core (7.0.0):
+    - Alamofire (~> 3.0)
+    - Result (~> 2.0)
+  - Moya/RxSwift (7.0.0):
+    - Moya/Core
+    - RxSwift (~> 2.0)
+  - NSObject+Rx (1.2.1):
+    - RxSwift (~> 2.1)
+  - Result (2.1.3)
+  - RxSwift (2.6.0)
+  - SDWebImage (3.8.1):
+    - SDWebImage/Core (= 3.8.1)
+  - SDWebImage/Core (3.8.1)
+  - SwiftyJSON (2.3.2)
+
+DEPENDENCIES:
+  - Alamofire (~> 3.4.1)
+  - FLAnimatedImage (~> 1.0.12)
+  - Moya/RxSwift
+  - NSObject+Rx (~> 1.2.1)
+  - RxSwift (~> 2.6.0)
+  - SDWebImage (~> 3.8.1)
+  - SwiftyJSON (~> 2.3.2)
+
+SPEC CHECKSUMS:
+  Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  Moya: f004b82418fb8165ee1fc9f86190db4b3611fda9
+  NSObject+Rx: 5d032a7f161602dec6b82dcf12731e91ce15b8da
+  Result: 18e1a7597fbcca5923c565b40a25a98afafdee02
+  RxSwift: 77f3a0b15324baa7a1c9bfa9f199648a82424e26
+  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+
+PODFILE CHECKSUM: ab3b1ad547300a435a816d659f5eb8451dce406e
+
+COCOAPODS: 1.0.1

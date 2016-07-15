@@ -12,9 +12,11 @@
 		5FEBE98C1D39715800CADCCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FEBE98A1D39715800CADCCE /* Main.storyboard */; };
 		5FEBE98E1D39715800CADCCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FEBE98D1D39715800CADCCE /* Assets.xcassets */; };
 		5FEBE9911D39715800CADCCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FEBE98F1D39715800CADCCE /* LaunchScreen.storyboard */; };
+		FDF00F005110E909998B938C /* Pods_GiphySearcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD75201FE95CA19F46AABE4F /* Pods_GiphySearcher.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		21141C8AF41872932CBC66B7 /* Pods-GiphySearcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiphySearcher.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiphySearcher/Pods-GiphySearcher.debug.xcconfig"; sourceTree = "<group>"; };
 		5FEBE9831D39715800CADCCE /* GiphySearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiphySearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FEBE9861D39715800CADCCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FEBE9881D39715800CADCCE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +24,8 @@
 		5FEBE98D1D39715800CADCCE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5FEBE9901D39715800CADCCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5FEBE9921D39715800CADCCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86A20436F61B85508E303ABD /* Pods-GiphySearcher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiphySearcher.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiphySearcher/Pods-GiphySearcher.release.xcconfig"; sourceTree = "<group>"; };
+		BD75201FE95CA19F46AABE4F /* Pods_GiphySearcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiphySearcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDF00F005110E909998B938C /* Pods_GiphySearcher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2EF9C63C094207228F83775A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				21141C8AF41872932CBC66B7 /* Pods-GiphySearcher.debug.xcconfig */,
+				86A20436F61B85508E303ABD /* Pods-GiphySearcher.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		5FEBE97A1D39715800CADCCE = {
 			isa = PBXGroup;
 			children = (
 				5FEBE9851D39715800CADCCE /* GiphySearcher */,
 				5FEBE9841D39715800CADCCE /* Products */,
+				2EF9C63C094207228F83775A /* Pods */,
+				F46B38482C6624BAF7796793 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +80,14 @@
 			path = GiphySearcher;
 			sourceTree = "<group>";
 		};
+		F46B38482C6624BAF7796793 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BD75201FE95CA19F46AABE4F /* Pods_GiphySearcher.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5FEBE9951D39715800CADCCE /* Build configuration list for PBXNativeTarget "GiphySearcher" */;
 			buildPhases = (
+				4C04DF82F82E0C23C30AEB54 /* [CP] Check Pods Manifest.lock */,
 				5FEBE97F1D39715800CADCCE /* Sources */,
 				5FEBE9801D39715800CADCCE /* Frameworks */,
 				5FEBE9811D39715800CADCCE /* Resources */,
+				21A211A7DBC847B39F929713 /* [CP] Embed Pods Frameworks */,
+				4140DE9BFD9358F7B9406F1D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -129,6 +156,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		21A211A7DBC847B39F929713 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GiphySearcher/Pods-GiphySearcher-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4140DE9BFD9358F7B9406F1D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GiphySearcher/Pods-GiphySearcher-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4C04DF82F82E0C23C30AEB54 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5FEBE97F1D39715800CADCCE /* Sources */ = {
@@ -249,6 +324,7 @@
 		};
 		5FEBE9961D39715800CADCCE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21141C8AF41872932CBC66B7 /* Pods-GiphySearcher.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GiphySearcher/Info.plist;
@@ -260,6 +336,7 @@
 		};
 		5FEBE9971D39715800CADCCE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86A20436F61B85508E303ABD /* Pods-GiphySearcher.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GiphySearcher/Info.plist;
@@ -288,6 +365,7 @@
 				5FEBE9971D39715800CADCCE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
