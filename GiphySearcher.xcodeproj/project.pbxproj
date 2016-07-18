@@ -58,10 +58,10 @@
 		5FEBE97A1D39715800CADCCE = {
 			isa = PBXGroup;
 			children = (
-				5FEBE9851D39715800CADCCE /* GiphySearcher */,
-				5FEBE9841D39715800CADCCE /* Products */,
-				2EF9C63C094207228F83775A /* Pods */,
 				F46B38482C6624BAF7796793 /* Frameworks */,
+				5FEBE9851D39715800CADCCE /* GiphySearcher */,
+				2EF9C63C094207228F83775A /* Pods */,
+				5FEBE9841D39715800CADCCE /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,13 +76,13 @@
 		5FEBE9851D39715800CADCCE /* GiphySearcher */ = {
 			isa = PBXGroup;
 			children = (
-				5FEFA8D01D3D3C4300D9DE5A /* Stubbed Responses */,
 				5FF96AA61D3BE40200D20DD6 /* App */,
+				5FEFA8D01D3D3C4300D9DE5A /* Stubbed Responses */,
 				5FEBE9861D39715800CADCCE /* AppDelegate.swift */,
-				5FEBE98A1D39715800CADCCE /* Main.storyboard */,
 				5FEBE98D1D39715800CADCCE /* Assets.xcassets */,
-				5FEBE98F1D39715800CADCCE /* LaunchScreen.storyboard */,
 				5FEBE9921D39715800CADCCE /* Info.plist */,
+				5FEBE98F1D39715800CADCCE /* LaunchScreen.storyboard */,
+				5FEBE98A1D39715800CADCCE /* Main.storyboard */,
 			);
 			path = GiphySearcher;
 			sourceTree = "<group>";
@@ -93,7 +93,7 @@
 				5FEFA8D11D3D3C5B00D9DE5A /* Search.json */,
 				5FEFA8D21D3D3C5B00D9DE5A /* Trending.json */,
 			);
-			name = "Stubbed Responses";
+			path = "Stubbed Responses";
 			sourceTree = "<group>";
 		};
 		5FF96AA61D3BE40200D20DD6 /* App */ = {
@@ -101,7 +101,7 @@
 			children = (
 				5FF96AA71D3BE40D00D20DD6 /* Networking */,
 			);
-			name = App;
+			path = App;
 			sourceTree = "<group>";
 		};
 		5FF96AA71D3BE40D00D20DD6 /* Networking */ = {
@@ -110,7 +110,7 @@
 				5FF96AA81D3BE44900D20DD6 /* GiphyAPI.swift */,
 				5FF96AAA1D3BEE0800D20DD6 /* Networking.swift */,
 			);
-			name = Networking;
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		F46B38482C6624BAF7796793 /* Frameworks */ = {
@@ -260,6 +260,7 @@
 				5FEBE98B1D39715800CADCCE /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		5FEBE98F1D39715800CADCCE /* LaunchScreen.storyboard */ = {
@@ -268,6 +269,7 @@
 				5FEBE9901D39715800CADCCE /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
