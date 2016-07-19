@@ -48,9 +48,9 @@ extension GiphyAPI: TargetType {
         }
     }
     
-    var multipartBody: [MultipartFormData]? {
-        return nil
-    }
+//    var multipartBody: [MultipartFormData]? {
+//        return nil
+//    }
    
     // Helper for stubbed responses
     private func stubbedResponse(filename: String) -> NSData! {
