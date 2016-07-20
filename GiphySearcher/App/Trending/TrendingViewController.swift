@@ -61,7 +61,8 @@ extension TrendingViewController: UICollectionViewDataSource, UICollectionViewDe
             
             cell.downloadImage = downloadImage
             cell.cancelDownloadImage = cancelDownloadImage
-            cell.imageURLString = viewModel.GIFAtIndexPath(indexPath).url_thumbnail
+            let cellViewModel = viewModel.GIFViewModelAtIndexPath(indexPath, canShowTrendingIcon: false)
+            cell.setViewModel(cellViewModel)
         }
         
         return cell

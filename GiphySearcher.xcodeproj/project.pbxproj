@@ -19,6 +19,7 @@
 		5FEBE9911D39715800CADCCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FEBE98F1D39715800CADCCE /* LaunchScreen.storyboard */; };
 		5FEFA8D31D3D3C5B00D9DE5A /* Search.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FEFA8D11D3D3C5B00D9DE5A /* Search.json */; };
 		5FEFA8D41D3D3C5B00D9DE5A /* Trending.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FEFA8D21D3D3C5B00D9DE5A /* Trending.json */; };
+		5FF38B2E1D4008B300421BC9 /* GIFViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF38B2D1D4008B300421BC9 /* GIFViewModel.swift */; };
 		5FF96AA91D3BE44900D20DD6 /* GiphyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF96AA81D3BE44900D20DD6 /* GiphyAPI.swift */; };
 		5FF96AAB1D3BEE0800D20DD6 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF96AAA1D3BEE0800D20DD6 /* Networking.swift */; };
 		FDF00F005110E909998B938C /* Pods_GiphySearcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD75201FE95CA19F46AABE4F /* Pods_GiphySearcher.framework */; };
@@ -40,6 +41,7 @@
 		5FEBE9921D39715800CADCCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FEFA8D11D3D3C5B00D9DE5A /* Search.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Search.json; sourceTree = "<group>"; };
 		5FEFA8D21D3D3C5B00D9DE5A /* Trending.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Trending.json; sourceTree = "<group>"; };
+		5FF38B2D1D4008B300421BC9 /* GIFViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFViewModel.swift; sourceTree = "<group>"; };
 		5FF96AA81D3BE44900D20DD6 /* GiphyAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiphyAPI.swift; sourceTree = "<group>"; };
 		5FF96AAA1D3BEE0800D20DD6 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		86A20436F61B85508E303ABD /* Pods-GiphySearcher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiphySearcher.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiphySearcher/Pods-GiphySearcher.release.xcconfig"; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				5FF96AA71D3BE40D00D20DD6 /* Networking */,
 				5F995DF11D3EF80900E5944B /* Trending */,
 				5F995DED1D3EB48100E5944B /* ViewModel.swift */,
+				5FF38B2D1D4008B300421BC9 /* GIFViewModel.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				5F995DE91D3DE62400E5944B /* GIF.swift in Sources */,
 				5F995DF71D3F151200E5944B /* GIFCollectionViewCell.swift in Sources */,
 				5FF96AAB1D3BEE0800D20DD6 /* Networking.swift in Sources */,
+				5FF38B2E1D4008B300421BC9 /* GIFViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

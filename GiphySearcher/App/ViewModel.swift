@@ -11,6 +11,8 @@ protocol ViewModelType {
     var updatedContents: Observable<Bool> { get }
     
     func GIFAtIndexPath(indexPath: NSIndexPath) -> GIF
+    
+    func GIFViewModelAtIndexPath(indexPath: NSIndexPath, canShowTrendingIcon: Bool) -> GIFViewModel
 }
 
 class ViewModel: NSObject, ViewModelType {
@@ -42,7 +44,12 @@ class ViewModel: NSObject, ViewModelType {
     func GIFAtIndexPath(indexPath: NSIndexPath) -> GIF {
         return GIFArray.value[indexPath.item]
     }
-  
+    
+    func GIFViewModelAtIndexPath(indexPath: NSIndexPath, canShowTrendingIcon: Bool = false) -> GIFViewModel {
+        let gif = GIFAtIndexPath(indexPath)
+        return GIFViewModel(gif: gif, canShowTrendingIcon: canShowTrendingIcon)
+    }
+    
     var updatedContents: Observable<Bool> {
         return GIFArray
             .asObservable()

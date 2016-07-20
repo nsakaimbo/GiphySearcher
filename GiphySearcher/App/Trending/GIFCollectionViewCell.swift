@@ -1,4 +1,7 @@
 import FLAnimatedImage
+import RxCocoa
+import RxSwift
+import NSObject_Rx
 import UIKit
 
 class GIFCollectionViewCell: UICollectionViewCell {
@@ -7,17 +10,18 @@ class GIFCollectionViewCell: UICollectionViewCell {
     typealias CancelDownloadImageClosure = (imageView: FLAnimatedImageView) -> ()
     
     let imageView: FLAnimatedImageView = GIFCollectionViewCell._imageView()
-    var imageURLString: String? {
-        didSet {
-            if let imageURLString = imageURLString,
-                url = NSURL(string: imageURLString) {
-                downloadImage?(url:url, imageView: imageView)
-            }
-        }
-    }
+
+    // TODO: add to subview
+    let icon: UIImageView = UIImageView(image: nil)
     
     var downloadImage: DownloadImageClosure?
     var cancelDownloadImage: CancelDownloadImageClosure?
+    var reuseBag: DisposeBag?
+   
+    var viewModel = PublishSubject<GIFViewModel>()
+    func setViewModel(newViewModel: GIFViewModel) {
+        self.viewModel.onNext(newViewModel)
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -43,6 +47,8 @@ class GIFCollectionViewCell: UICollectionViewCell {
         imageView.topAnchor.constraintEqualToAnchor(contentView.topAnchor).active = true
         imageView.trailingAnchor.constraintEqualToAnchor(contentView.trailingAnchor).active = true
         imageView.bottomAnchor.constraintEqualToAnchor(contentView.bottomAnchor).active = true
+        
+        setupSubscriptions()
     }
     
     class func _imageView() -> FLAnimatedImageView {
@@ -55,5 +61,31 @@ class GIFCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         cancelDownloadImage?(imageView: imageView)
+        setupSubscriptions()
+    }
+    
+    func setupSubscriptions() {
+       
+        reuseBag = DisposeBag()
+        
+        guard let reuseBag = reuseBag else { return }
+        
+        viewModel.map { (viewModel) -> NSURL? in
+            return viewModel.thumbnailURL
+        }.subscribeNext { [weak self] url in
+            // we need an unwrapped imageView to pass to our download handler
+            guard let imageView = self?.imageView else { return }
+            self?.downloadImage?(url: url, imageView: imageView)
+        }.addDisposableTo(reuseBag)
+       
+        viewModel.map { (viewModel) -> Bool in
+            if let didTrend = try? viewModel.hasEverTrended.value(),
+                shouldShow = try? viewModel.canShowTrendingIcon.value() {
+                return didTrend && shouldShow
+            }
+            return false
+        }
+        .bindTo(self.icon.rx_hidden)
+        .addDisposableTo(reuseBag)
     }
 }
