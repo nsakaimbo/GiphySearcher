@@ -1,3 +1,4 @@
+import FLAnimatedImage
 import SDWebImage
 import RxSwift
 import UIKit
@@ -6,6 +7,19 @@ class TrendingViewController: UIViewController {
     
     private let API = Networking()
 
+    var downloadImage: GIFCollectionViewCell.DownloadImageClosure = { (url, imageView) in
+        if let url = url {
+            imageView.sd_setImageWithURL(url)
+        }
+        else {
+            imageView.image = nil
+        }
+    }
+    
+    var cancelDownloadImage: GIFCollectionViewCell.CancelDownloadImageClosure = { imageView in
+        imageView.sd_cancelCurrentImageLoad()
+    }
+    
     lazy var viewModel: ViewModelType = {
         return ViewModel(API: self.API, endpoint: .Trending)
     }()
@@ -41,10 +55,13 @@ extension TrendingViewController: UICollectionViewDataSource, UICollectionViewDe
    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
        
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(String(GIFCollectionViewCell), forIndexPath: indexPath) as! GIFCollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(String(GIFCollectionViewCell), forIndexPath: indexPath)
         
-        if let url = NSURL(string: viewModel.GIFAtIndexPath(indexPath).url_thumbnail) {
-            cell.imageURL = url
+        if let cell = cell as? GIFCollectionViewCell {
+            
+            cell.downloadImage = downloadImage
+            cell.cancelDownloadImage = cancelDownloadImage
+            cell.imageURLString = viewModel.GIFAtIndexPath(indexPath).url_thumbnail
         }
         
         return cell

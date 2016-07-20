@@ -1,32 +1,23 @@
 import FLAnimatedImage
-import SDWebImage
 import UIKit
 
 class GIFCollectionViewCell: UICollectionViewCell {
     
-    typealias DownloadImageClosure = (url: NSURL, imageView: FLAnimatedImageView) -> ()
+    typealias DownloadImageClosure = (url: NSURL?, imageView: FLAnimatedImageView) -> ()
     typealias CancelDownloadImageClosure = (imageView: FLAnimatedImageView) -> ()
     
     let imageView: FLAnimatedImageView = GIFCollectionViewCell._imageView()
-    var imageURL: NSURL? {
+    var imageURLString: String? {
         didSet {
-            // We could have used a reactive binding here but seemed like overkill.
-            if let url = imageURL {
-               downloadImage(url: url, imageView: imageView)
-            }
-            else {
-                imageView.image = nil
+            if let imageURLString = imageURLString,
+                url = NSURL(string: imageURLString) {
+                downloadImage?(url:url, imageView: imageView)
             }
         }
     }
     
-    private let downloadImage: DownloadImageClosure = { (url, imageView) in
-        imageView.sd_setImageWithURL(url)
-    }
-    
-    private let cancelDownloadImage: CancelDownloadImageClosure = { imageView in
-        imageView.sd_cancelCurrentImageLoad()
-    }
+    var downloadImage: DownloadImageClosure?
+    var cancelDownloadImage: CancelDownloadImageClosure?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -63,7 +54,6 @@ class GIFCollectionViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        cancelDownloadImage(imageView: imageView)
-
+        cancelDownloadImage?(imageView: imageView)
     }
 }
