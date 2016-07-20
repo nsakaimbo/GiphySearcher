@@ -1,16 +1,7 @@
 PODS:
   - Alamofire (3.4.1)
+  - FLAnimatedImage (1.0.12)
   - HanekeSwift (0.10.1)
-  - ModelMapper (2.1.0)
-  - Moya (6.5.0):
-    - Moya/Core (= 6.5.0)
-  - Moya-ModelMapper/Core (2.0.1):
-    - ModelMapper (~> 2.0)
-    - Moya (~> 6.4)
-  - Moya-ModelMapper/RxSwift (2.0.1):
-    - Moya-ModelMapper/Core
-    - Moya/RxSwift (~> 6.4)
-    - RxSwift (~> 2.3)
   - Moya/Core (6.5.0):
     - Alamofire (~> 3.0)
     - Result (~> 2.0)
@@ -30,8 +21,8 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 3.4.1)
+  - FLAnimatedImage (= 1.0.12)
   - HanekeSwift (~> 0.10.1)
-  - Moya-ModelMapper/RxSwift (~> 2.0.0)
   - Moya/RxSwift (~> 6.4)
   - NSObject+Rx (~> 1.2.1)
   - RxCocoa (~> 2.6.0)
@@ -41,10 +32,9 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   HanekeSwift: '08e47d3d0f2899ec58e5d257beba0de619aca9e8'
-  ModelMapper: e599744bc1e869bdb87b453b7ce16981028b8513
   Moya: f7a4044719381cc6299f9ad3e0ef05f426f0557b
-  Moya-ModelMapper: 8956f8e834eea3cf776e79ddbf6680e0d53c5923
   NSObject+Rx: 5d032a7f161602dec6b82dcf12731e91ce15b8da
   Result: 18e1a7597fbcca5923c565b40a25a98afafdee02
   RxCocoa: 89ab00d5753502520227940e3a0e0a0413683c6b
@@ -52,6 +42,6 @@ SPEC CHECKSUMS:
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: b72cb297c8301dccb079f9e5dad49160b96c9d4d
+PODFILE CHECKSUM: 158584992cf4dbc76f15db762704ecc65a0d9b32
 
 COCOAPODS: 1.0.1

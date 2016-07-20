@@ -28,10 +28,13 @@ final class GIF: NSObject, JSONAbleType {
          large_height: String) {
         
         self.id = id
+        
         self.trending_datetime = trended_datetime
+        
         self.url_thumbnail = url_thumbnail
         self.thumbnail_width = thumbnail_width
         self.thumbnail_height = thumbnail_height
+        
         self.url_large = url_large
         self.large_width = large_width
         self.large_height = large_height
@@ -46,7 +49,7 @@ final class GIF: NSObject, JSONAbleType {
         let trended_datetime = json["trending_datetime"].stringValue
         let url_thumbnail = json["images"]["fixed_width"]["url"].stringValue
         let thumbnail_width = json["images"]["fixed_width"]["width"].stringValue
-        let thumbnail_height = json["images"]["fixed_height"]["height"].stringValue
+        let thumbnail_height = json["images"]["fixed_width"]["height"].stringValue
         let url_large = json["images"]["original"]["url"].stringValue
         let large_width = json["images"]["original"]["width"].stringValue
         let large_height = json["images"]["original"]["height"].stringValue
