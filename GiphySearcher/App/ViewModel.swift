@@ -3,9 +3,14 @@ import NSObject_Rx
 import RxSwift
 
 protocol ViewModelType {
+    
     var API: Networking { get }
     var GIFArray: Variable<Array<GIF>> { get }
     var endpoint: GiphyAPI { get }
+    var numberOfGIFs: Int { get }
+    var updatedContents: Observable<Bool> { get }
+    
+    func GIFAtIndexPath(indexPath: NSIndexPath) -> GIF
 }
 
 class ViewModel: NSObject, ViewModelType {
@@ -37,7 +42,14 @@ class ViewModel: NSObject, ViewModelType {
     func GIFAtIndexPath(indexPath: NSIndexPath) -> GIF {
         return GIFArray.value[indexPath.item]
     }
-   
+  
+    var updatedContents: Observable<Bool> {
+        return GIFArray
+            .asObservable()
+            .map { $0.count > 0 }
+            .ignore(false)
+    }
+    
     // MARK: Private Methods
     
     private func fetchTrending(API: Networking) -> Observable<[GIF]> {
