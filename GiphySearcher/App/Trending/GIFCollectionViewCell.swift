@@ -10,20 +10,23 @@ class GIFCollectionViewCell: UICollectionViewCell {
     let imageView: FLAnimatedImageView = GIFCollectionViewCell._imageView()
     var imageURL: NSURL? {
         didSet {
+            // We could have used a reactive binding here but seemed like overkill.
             if let url = imageURL {
                downloadImage(url: url, imageView: imageView)
+            }
+            else {
+                imageView.image = nil
             }
         }
     }
     
     private let downloadImage: DownloadImageClosure = { (url, imageView) in
-        
-        imageView.sd_setImageWithURL(url, placeholderImage: UIImage())
+        imageView.sd_setImageWithURL(url)
     }
     
-//    private let cancelDownloadImage: CancelDownloadImageClosure = { imageView in
-//        
-//    }
+    private let cancelDownloadImage: CancelDownloadImageClosure = { imageView in
+        imageView.sd_cancelCurrentImageLoad()
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,7 +36,6 @@ class GIFCollectionViewCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
-  
     }
     
     private func setup() {
@@ -44,9 +46,6 @@ class GIFCollectionViewCell: UICollectionViewCell {
         layer.shadowColor = UIColor.blackColor().CGColor
         layer.shadowOpacity = 0.5
         layer.shadowOffset = CGSize.zero
-       
-//        imageView.frame = self.frame
-//        imageView.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
         
         contentView.addSubview(imageView)
         imageView.leadingAnchor.constraintEqualToAnchor(contentView.leadingAnchor).active = true
@@ -64,8 +63,7 @@ class GIFCollectionViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-//        cancelDownloadImage(imageView: imageView)
-//        imageView.animatedImage = nil
-//        imageView.image = nil
+        cancelDownloadImage(imageView: imageView)
+
     }
 }
