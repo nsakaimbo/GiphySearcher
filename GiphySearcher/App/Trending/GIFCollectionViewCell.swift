@@ -1,5 +1,5 @@
+import FLAnimatedImage
 import SDWebImage
-import Haneke
 import UIKit
 
 class GIFCollectionViewCell: UICollectionViewCell {
@@ -18,23 +18,7 @@ class GIFCollectionViewCell: UICollectionViewCell {
     
     private let downloadImage: DownloadImageClosure = { (url, imageView) in
         
-        let cache = Shared.dataCache
-        
-        let image = cache.fetch(URL: url).onSuccess { data in
-            
-            if url.pathExtension == ".gif" {
-                let image = FLAnimatedImage(animatedGIFData: data)
-               
-                dispatch_async(dispatch_get_main_queue()) {
-                    imageView.animatedImage = image
-                }
-                
-            }
-            else {
-                let image = UIImage(data: data)
-                imageView.image = image
-            }
-        }
+        imageView.sd_setImageWithURL(url, placeholderImage: UIImage())
     }
     
 //    private let cancelDownloadImage: CancelDownloadImageClosure = { imageView in
