@@ -1,4 +1,4 @@
-import FLAnimatedImage
+import SDWebImage
 import Haneke
 import RxSwift
 import UIKit

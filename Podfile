@@ -12,6 +12,7 @@ target 'GiphySearcher' do
   pod 'RxCocoa', '~> 2.6.0'
   pod 'Moya-ModelMapper/RxSwift', '~> 2.0.0'
   pod 'RxSwift', '~> 2.6.0'
+  pod 'SDWebImage', '~> 3.8.1'
   pod 'SwiftyJSON', '~> 2.3.2'
 
 end
