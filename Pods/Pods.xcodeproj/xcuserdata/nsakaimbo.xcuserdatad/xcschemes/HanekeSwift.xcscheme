@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '207AC766AEE2A0CACBC26B9D818ED292'
-               BlueprintName = 'Pods-GiphySearcher'
+               BlueprintIdentifier = '2C2B1953A91633859BF7AD238FF567A0'
+               BlueprintName = 'HanekeSwift'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Pods-GiphySearcher.framework'>
+               BuildableName = 'HanekeSwift.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
