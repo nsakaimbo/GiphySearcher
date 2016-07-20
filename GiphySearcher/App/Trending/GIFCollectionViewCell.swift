@@ -12,7 +12,7 @@ class GIFCollectionViewCell: UICollectionViewCell {
     let imageView: FLAnimatedImageView = GIFCollectionViewCell._imageView()
 
     // TODO: add to subview
-    let icon: UIImageView = UIImageView(image: nil)
+    let icon: UIImageView = GIFCollectionViewCell._icon()
     
     var downloadImage: DownloadImageClosure?
     var cancelDownloadImage: CancelDownloadImageClosure?
@@ -42,11 +42,19 @@ class GIFCollectionViewCell: UICollectionViewCell {
         layer.shadowOpacity = 0.5
         layer.shadowOffset = CGSize.zero
         
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(imageView)
         imageView.leadingAnchor.constraintEqualToAnchor(contentView.leadingAnchor).active = true
         imageView.topAnchor.constraintEqualToAnchor(contentView.topAnchor).active = true
         imageView.trailingAnchor.constraintEqualToAnchor(contentView.trailingAnchor).active = true
         imageView.bottomAnchor.constraintEqualToAnchor(contentView.bottomAnchor).active = true
+        
+        icon.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(icon)
+        icon.widthAnchor.constraintEqualToConstant(20.0).active = true
+        icon.heightAnchor.constraintEqualToConstant(20.0).active = true
+        icon.trailingAnchor.constraintEqualToAnchor(contentView.trailingAnchor, constant: -5.0).active = true
+        icon.bottomAnchor.constraintEqualToAnchor(contentView.bottomAnchor, constant: -5.0).active = true
         
         setupSubscriptions()
     }
@@ -54,8 +62,15 @@ class GIFCollectionViewCell: UICollectionViewCell {
     class func _imageView() -> FLAnimatedImageView {
         let imageView = FLAnimatedImageView()
         imageView.contentMode = .ScaleAspectFill
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
+    }
+    
+    class func _icon() -> UIImageView {
+        let icon = UIImageView(image: UIImage(named: "TrendingIcon"))
+        icon.backgroundColor = .clearColor()
+        icon.tintColor = .whiteColor()
+        icon.contentMode = .ScaleAspectFill
+        return icon
     }
     
     override func prepareForReuse() {
@@ -81,9 +96,10 @@ class GIFCollectionViewCell: UICollectionViewCell {
         viewModel.map { (viewModel) -> Bool in
             if let didTrend = try? viewModel.hasEverTrended.value(),
                 shouldShow = try? viewModel.canShowTrendingIcon.value() {
-                return didTrend && shouldShow
+                return !(didTrend && shouldShow)
             }
-            return false
+            // icon is hidden by default
+            return true
         }
         .bindTo(self.icon.rx_hidden)
         .addDisposableTo(reuseBag)
