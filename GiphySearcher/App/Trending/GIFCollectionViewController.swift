@@ -1,11 +1,7 @@
 import FLAnimatedImage
-import SDWebImage
+import Nuke
 import RxSwift
 import UIKit
-
-// http://stackoverflow.com/questions/20288853/sdwebimage-clear-cache-with-tag-for-a-set-of-image
-// http://stackoverflow.com/questions/24012958/different-cache-types-sdwebimage
-// http://www.unknownerror.org/opensource/rs/SDWebImage
 
 final class GIFCollectionViewController: UIViewController {
    
@@ -38,7 +34,7 @@ final class GIFCollectionViewController: UIViewController {
 
     var downloadImage: GIFCollectionViewCell.DownloadImageClosure = { (url, imageView) in
         if let url = url {
-            imageView.sd_setImageWithURL(url)
+            imageView.nk_setImageWith(url)
         }
         else {
             imageView.image = nil
@@ -46,7 +42,8 @@ final class GIFCollectionViewController: UIViewController {
     }
     
     var cancelDownloadImage: GIFCollectionViewCell.CancelDownloadImageClosure = { imageView in
-        imageView.sd_cancelCurrentImageLoad()
+        imageView.nk_displayImage(nil)
+        imageView.nk_cancelLoading()
     }
     
     var viewModel: ViewModelType!
@@ -75,7 +72,7 @@ final class GIFCollectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+  
         viewModel = ViewModel(API: API, endpoint: configuration.endpoint)
         
         edgesForExtendedLayout = .Top
@@ -108,7 +105,7 @@ final class GIFCollectionViewController: UIViewController {
         case let .ShowSearchResults(query):
             // show header
             searchQueryHeader = GIFCollectionViewController._searchQueryHeader()
-            searchQueryHeader.text = "Search results for " + "\"\(query)\""
+            searchQueryHeader.text = "Search results for " + "\"\(query.TrimmedString)\""
         }
         
         layoutCustomViewProperties()
@@ -117,15 +114,13 @@ final class GIFCollectionViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         searchTextField?.text = nil
+        
     }
     
-//    override func viewWillDisappear(animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        if configuration.isShowingSearchResults {
-//            SDWebImageManager.sharedManager().imageCache.clearMemory()
-//            SDWebImageManager.sharedManager().imageCache.clearDisk()
-//        }
-//    }
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        ImageManager.shared.removeAllCachedImages()
+    }
     
     private func layoutCustomViewProperties() {
        

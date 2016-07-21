@@ -30,7 +30,7 @@ class ViewModel: NSObject, ViewModelType {
         
         super.init()
         
-        fetchTrending(API)
+        fetch(API)
             .subscribeNext({
                 self.GIFArray.value += $0
             })
@@ -59,7 +59,7 @@ class ViewModel: NSObject, ViewModelType {
     
     // MARK: Private Methods
     
-    private func fetchTrending(API: Networking) -> Observable<[GIF]> {
+    func fetch(API: Networking) -> Observable<[GIF]> {
         return API.provider.request(self.endpoint)
             .filterSuccessfulStatusCodes()
             .mapJSON()

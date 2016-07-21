@@ -62,11 +62,15 @@ extension GiphyAPI: TargetType {
     }
 }
 
-private extension String {
+extension String {
+    
+    var TrimmedString: String {
+        return self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+    }
     
     var PlusEncodedString: String {
         return self
-            .stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+            .TrimmedString
             .stringByReplacingOccurrencesOfString(" ", withString: "+")
     }
 }
