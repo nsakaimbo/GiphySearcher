@@ -15,8 +15,6 @@
 		5F4291001D40641B0077AEC2 /* Oswald-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5F4290FD1D40641B0077AEC2 /* Oswald-Regular.ttf */; };
 		5F4291021D40681D0077AEC2 /* AppNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4291011D40681D0077AEC2 /* AppNavigationBar.swift */; };
 		5F4291041D4068D30077AEC2 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4291031D4068D30077AEC2 /* UIImage+Color.swift */; };
-		5F4291061D4070700077AEC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F4291051D4070700077AEC2 /* Main.storyboard */; };
-		5F4291091D4080760077AEC2 /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4291081D4080760077AEC2 /* AppViewController.swift */; };
 		5F995DE91D3DE62400E5944B /* GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F995DE81D3DE62400E5944B /* GIF.swift */; };
 		5F995DEC1D3E85BC00E5944B /* Observable+JSONAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F995DEB1D3E85BC00E5944B /* Observable+JSONAble.swift */; };
 		5F995DEE1D3EB48100E5944B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F995DED1D3EB48100E5944B /* ViewModel.swift */; };
@@ -44,8 +42,6 @@
 		5F4290FD1D40641B0077AEC2 /* Oswald-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Regular.ttf"; sourceTree = "<group>"; };
 		5F4291011D40681D0077AEC2 /* AppNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppNavigationBar.swift; path = Views/AppNavigationBar.swift; sourceTree = "<group>"; };
 		5F4291031D4068D30077AEC2 /* UIImage+Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
-		5F4291051D4070700077AEC2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		5F4291081D4080760077AEC2 /* AppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppViewController.swift; path = Search/AppViewController.swift; sourceTree = "<group>"; };
 		5F995DE81D3DE62400E5944B /* GIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIF.swift; sourceTree = "<group>"; };
 		5F995DEB1D3E85BC00E5944B /* Observable+JSONAble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+JSONAble.swift"; sourceTree = "<group>"; };
 		5F995DED1D3EB48100E5944B /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -108,7 +104,6 @@
 		5F4291071D4080540077AEC2 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				5F4291081D4080760077AEC2 /* AppViewController.swift */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -173,7 +168,6 @@
 				5FEBE9921D39715800CADCCE /* Info.plist */,
 				5FEBE98F1D39715800CADCCE /* LaunchScreen.storyboard */,
 				5F4291011D40681D0077AEC2 /* AppNavigationBar.swift */,
-				5F4291051D4070700077AEC2 /* Main.storyboard */,
 			);
 			path = GiphySearcher;
 			sourceTree = "<group>";
@@ -281,7 +275,6 @@
 				5FEBE9911D39715800CADCCE /* LaunchScreen.storyboard in Resources */,
 				5FEFA8D31D3D3C5B00D9DE5A /* Search.json in Resources */,
 				5FEBE98E1D39715800CADCCE /* Assets.xcassets in Resources */,
-				5F4291061D4070700077AEC2 /* Main.storyboard in Resources */,
 				5F4290FF1D40641B0077AEC2 /* Oswald-Light.ttf in Resources */,
 				5FEFA8D41D3D3C5B00D9DE5A /* Trending.json in Resources */,
 				5F4290FE1D40641B0077AEC2 /* Oswald-Bold.ttf in Resources */,
@@ -354,7 +347,6 @@
 				5F995DF51D3F098300E5944B /* Observable+Operators.swift in Sources */,
 				5FF96AA91D3BE44900D20DD6 /* GiphyAPI.swift in Sources */,
 				5F4290F81D40638F0077AEC2 /* Font.swift in Sources */,
-				5F4291091D4080760077AEC2 /* AppViewController.swift in Sources */,
 				5F995DE91D3DE62400E5944B /* GIF.swift in Sources */,
 				5F995DF71D3F151200E5944B /* GIFCollectionViewCell.swift in Sources */,
 				5FF96AAB1D3BEE0800D20DD6 /* Networking.swift in Sources */,

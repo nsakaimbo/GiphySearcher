@@ -3,9 +3,14 @@ import SDWebImage
 import RxSwift
 import UIKit
 
-class TrendingViewController: UIViewController {
+class GIFCollectionViewController: UIViewController {
+   
+    enum Configuration {
+        case ShowTrending
+        case ShowSearchResults(query: String)
+    }
     
-    private let API = Networking()
+    var API: Networking!
 
     var downloadImage: GIFCollectionViewCell.DownloadImageClosure = { (url, imageView) in
         if let url = url {
@@ -26,11 +31,24 @@ class TrendingViewController: UIViewController {
     
     lazy var collectionView: UICollectionView = { return .trendingCollectionViewWithDelegateDatasource(self) } ()
     
-    var searchTextField: UITextField = { return TrendingViewController._searchTextField() }()
+    var searchTextField: UITextField = { return GIFCollectionViewController._searchTextField() }()
+  
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
       
+        edgesForExtendedLayout = .Top
+       
+        view.backgroundColor = .whiteColor()
+        
         layoutCustomViewProperties()
         
         // reactive bindings
@@ -78,7 +96,7 @@ class TrendingViewController: UIViewController {
     }
 }
 
-extension TrendingViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension GIFCollectionViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfGIFs
@@ -118,13 +136,13 @@ extension TrendingViewController: UICollectionViewDataSource, UICollectionViewDe
 
 extension UICollectionView {
     
-    class func trendingCollectionViewWithDelegateDatasource(delegateDataSource: TrendingViewController) -> UICollectionView {
+    class func trendingCollectionViewWithDelegateDatasource(delegateDataSource: GIFCollectionViewController) -> UICollectionView {
         
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
         
         collectionView.registerClass(GIFCollectionViewCell.self, forCellWithReuseIdentifier: String(GIFCollectionViewCell))
-        collectionView.backgroundColor = .whiteColor()
+        collectionView.backgroundColor = .clearColor()
         collectionView.dataSource = delegateDataSource
         collectionView.delegate = delegateDataSource
         collectionView.alwaysBounceVertical = true

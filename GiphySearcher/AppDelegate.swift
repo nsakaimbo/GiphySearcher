@@ -5,10 +5,20 @@ import RxSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+   
+    private(set) var API: Networking = Networking()
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         setupGlobalStyles()
+      
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let trendingViewController = GIFCollectionViewController()
+        trendingViewController.API = API
+        let navigationController = UINavigationController(rootViewController: trendingViewController)
+        window?.backgroundColor = .blackColor()
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
         
         return true
     }
