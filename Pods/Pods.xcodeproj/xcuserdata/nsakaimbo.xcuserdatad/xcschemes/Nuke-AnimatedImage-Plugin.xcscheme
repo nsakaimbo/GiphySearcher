@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "35772CF55D81CAD3951098B2EE6D2C33"
-               BuildableName = "Pods_GiphySearcher.framework"
-               BlueprintName = "Pods-GiphySearcher"
+               BlueprintIdentifier = "37D90A348C88BF4C70BC346D2C171DE2"
+               BuildableName = "NukeAnimatedImagePlugin.framework"
+               BlueprintName = "Nuke-AnimatedImage-Plugin"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "35772CF55D81CAD3951098B2EE6D2C33"
-            BuildableName = "Pods_GiphySearcher.framework"
-            BlueprintName = "Pods-GiphySearcher"
+            BlueprintIdentifier = "37D90A348C88BF4C70BC346D2C171DE2"
+            BuildableName = "NukeAnimatedImagePlugin.framework"
+            BlueprintName = "Nuke-AnimatedImage-Plugin"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

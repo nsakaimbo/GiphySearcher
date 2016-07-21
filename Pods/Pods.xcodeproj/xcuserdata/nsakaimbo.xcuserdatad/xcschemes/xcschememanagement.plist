@@ -14,17 +14,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>HanekeSwift.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Moya.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>NSObject+Rx.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Nuke-AnimatedImage-Plugin.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Nuke.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -49,11 +54,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SDWebImage.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,12 +67,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2C2B1953A91633859BF7AD238FF567A0</key>
+		<key>35772CF55D81CAD3951098B2EE6D2C33</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5C891AE02476DC3B038AD53B8AE33637</key>
+		<key>37D90A348C88BF4C70BC346D2C171DE2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5B34CCF8A36C49A4A25EF5312E02B6E9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,17 +87,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7B963F7C8C214340523941046F0D0A98</key>
+		<key>86471FBEF4B3C841E905ACFDACCB1B7D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8F21E8D0CF87BE5407DBB09F1AC3D43F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>93DDB4D07205258016E6779F2667E665</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>943B8AAB752DBBA1E46D8397832B70EE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -103,11 +108,6 @@
 			<true/>
 		</dict>
 		<key>E5678FC69B99077E1972D149186B2285</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F38824E2C4BC98CFC9610C73D89F4144</key>
 		<dict>
 			<key>primary</key>
 			<true/>

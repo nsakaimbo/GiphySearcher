@@ -5,9 +5,9 @@ target 'GiphySearcher' do
   use_frameworks!
 
   pod 'Alamofire', '~> 3.4.1'
-  pod 'FLAnimatedImage', '1.0.12'
-  pod 'SDWebImage', '~> 3.8.1'
-  pod 'HanekeSwift', '~> 0.10.1'
+  pod 'FLAnimatedImage', '~> 1.0.12'
+  pod 'Nuke', '~> 3.1.3'
+  pod 'Nuke-AnimatedImage-Plugin'
   pod 'Moya/RxSwift', '~> 6.4'
   pod 'NSObject+Rx', '~> 1.2.1'
   pod 'RxCocoa', '~> 2.6.0'

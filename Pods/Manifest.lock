@@ -1,7 +1,6 @@
 PODS:
   - Alamofire (3.4.1)
   - FLAnimatedImage (1.0.12)
-  - HanekeSwift (0.10.1)
   - Moya/Core (6.5.0):
     - Alamofire (~> 3.0)
     - Result (~> 2.0)
@@ -10,38 +9,39 @@ PODS:
     - RxSwift (~> 2.0)
   - NSObject+Rx (1.2.1):
     - RxSwift (~> 2.1)
+  - Nuke (3.1.3)
+  - Nuke-AnimatedImage-Plugin (1.0.0):
+    - FLAnimatedImage (~> 1.0)
+    - Nuke (~> 3.0)
   - Result (2.1.3)
   - RxCocoa (2.6.0):
     - RxSwift (~> 2.5)
   - RxSwift (2.6.0)
-  - SDWebImage (3.8.1):
-    - SDWebImage/Core (= 3.8.1)
-  - SDWebImage/Core (3.8.1)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
   - Alamofire (~> 3.4.1)
-  - FLAnimatedImage (= 1.0.12)
-  - HanekeSwift (~> 0.10.1)
+  - FLAnimatedImage (~> 1.0.12)
   - Moya/RxSwift (~> 6.4)
   - NSObject+Rx (~> 1.2.1)
+  - Nuke (~> 3.1.3)
+  - Nuke-AnimatedImage-Plugin
   - RxCocoa (~> 2.6.0)
   - RxSwift (~> 2.6.0)
-  - SDWebImage (~> 3.8.1)
   - SwiftyJSON (~> 2.3.2)
 
 SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
-  HanekeSwift: '08e47d3d0f2899ec58e5d257beba0de619aca9e8'
   Moya: f7a4044719381cc6299f9ad3e0ef05f426f0557b
   NSObject+Rx: 5d032a7f161602dec6b82dcf12731e91ce15b8da
+  Nuke: d951142c7499e18f242e59ae7fb95a021a2a4974
+  Nuke-AnimatedImage-Plugin: 5a35f5a38dcd6c9559225de1c80ac7e758bd0ef8
   Result: 18e1a7597fbcca5923c565b40a25a98afafdee02
   RxCocoa: 89ab00d5753502520227940e3a0e0a0413683c6b
   RxSwift: 77f3a0b15324baa7a1c9bfa9f199648a82424e26
-  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: 158584992cf4dbc76f15db762704ecc65a0d9b32
+PODFILE CHECKSUM: c5d05bb2bab3c87754cc246fe2e6dac1d89c260d
 
 COCOAPODS: 1.0.1
