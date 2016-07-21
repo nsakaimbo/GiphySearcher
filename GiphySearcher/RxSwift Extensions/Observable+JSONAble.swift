@@ -1,6 +1,7 @@
 import Foundation
 import Moya
 import RxSwift
+import SwiftyJSON
 
 enum JSONError: String {
     case CouldNotParse
@@ -31,9 +32,13 @@ extension Observable {
                     throw JSONError.CouldNotParse
             }
             
-            guard let dicts = array as? [Dictionary] else {
+            guard var dicts = array as? [Dictionary] else {
                 throw JSONError.CouldNotParse
             }
+          
+            // filter for PG-13 and "R" ratings
+            dicts = dicts.filter({ !($0["rating"] as! String == "pg-13")})
+            dicts = dicts.filter({ !($0["rating"] as! String == "r")})
             
             return dicts.map { B.fromJSON($0) }
         }

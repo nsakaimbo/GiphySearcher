@@ -114,7 +114,6 @@ final class GIFCollectionViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         searchTextField?.text = nil
-        
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -180,9 +179,8 @@ extension GIFCollectionViewController: UICollectionViewDataSource, UICollectionV
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
        
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(String(GIFCollectionViewCell), forIndexPath: indexPath)
-        
+       
         if let cell = cell as? GIFCollectionViewCell {
-            
             cell.downloadImage = downloadImage
             cell.cancelDownloadImage = cancelDownloadImage
             let cellViewModel = viewModel.GIFViewModelAtIndexPath(indexPath, canShowTrendingIcon: configuration.isShowingSearchResults)
