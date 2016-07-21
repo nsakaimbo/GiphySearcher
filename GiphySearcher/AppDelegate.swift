@@ -1,5 +1,6 @@
 import UIKit
 import RxSwift
+import SDWebImage
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -12,6 +13,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         setupGlobalStyles()
       
+        let cache = SDImageCache.sharedImageCache()
+        cache.clearDisk()
+        // cache optimizations for RAM
+        // reference: https://github.com/rs/SDWebImage/issues/1544
+        cache.shouldCacheImagesInMemory = false
+        cache.shouldDecompressImages = false
+        SDWebImageDownloader.sharedDownloader().shouldDecompressImages = false
+        
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         let trendingViewController = GIFCollectionViewController()
         trendingViewController.API = API

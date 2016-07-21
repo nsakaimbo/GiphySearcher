@@ -18,7 +18,7 @@
 		5F995DE91D3DE62400E5944B /* GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F995DE81D3DE62400E5944B /* GIF.swift */; };
 		5F995DEC1D3E85BC00E5944B /* Observable+JSONAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F995DEB1D3E85BC00E5944B /* Observable+JSONAble.swift */; };
 		5F995DEE1D3EB48100E5944B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F995DED1D3EB48100E5944B /* ViewModel.swift */; };
-		5F995DF31D3EF82200E5944B /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F995DF21D3EF82200E5944B /* TrendingViewController.swift */; };
+		5F995DF31D3EF82200E5944B /* GIFCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F995DF21D3EF82200E5944B /* GIFCollectionViewController.swift */; };
 		5F995DF51D3F098300E5944B /* Observable+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F995DF41D3F098300E5944B /* Observable+Operators.swift */; };
 		5F995DF71D3F151200E5944B /* GIFCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F995DF61D3F151200E5944B /* GIFCollectionViewCell.swift */; };
 		5FEBE9871D39715800CADCCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBE9861D39715800CADCCE /* AppDelegate.swift */; };
@@ -45,7 +45,7 @@
 		5F995DE81D3DE62400E5944B /* GIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIF.swift; sourceTree = "<group>"; };
 		5F995DEB1D3E85BC00E5944B /* Observable+JSONAble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+JSONAble.swift"; sourceTree = "<group>"; };
 		5F995DED1D3EB48100E5944B /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		5F995DF21D3EF82200E5944B /* TrendingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingViewController.swift; sourceTree = "<group>"; };
+		5F995DF21D3EF82200E5944B /* GIFCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFCollectionViewController.swift; sourceTree = "<group>"; };
 		5F995DF41D3F098300E5944B /* Observable+Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+Operators.swift"; sourceTree = "<group>"; };
 		5F995DF61D3F151200E5944B /* GIFCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFCollectionViewCell.swift; sourceTree = "<group>"; };
 		5FEBE9831D39715800CADCCE /* GiphySearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiphySearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,13 +118,25 @@
 			path = "RxSwift Extensions";
 			sourceTree = "<group>";
 		};
-		5F995DF11D3EF80900E5944B /* Trending */ = {
+		5F995DF11D3EF80900E5944B /* Trending and Search */ = {
 			isa = PBXGroup;
 			children = (
-				5F995DF21D3EF82200E5944B /* TrendingViewController.swift */,
+				5F995DF21D3EF82200E5944B /* GIFCollectionViewController.swift */,
 				5F995DF61D3F151200E5944B /* GIFCollectionViewCell.swift */,
 			);
+			name = "Trending and Search";
 			path = Trending;
+			sourceTree = "<group>";
+		};
+		5FEAEA4E1D40F91F00EF1717 /* UIKit+Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5F4290F31D4060430077AEC2 /* CALayer+Border.swift */,
+				5F4290F71D40638F0077AEC2 /* Font.swift */,
+				5F4290F51D40610B0077AEC2 /* UIColor+Custom.swift */,
+				5F4291031D4068D30077AEC2 /* UIImage+Color.swift */,
+			);
+			name = "UIKit+Extensions";
 			sourceTree = "<group>";
 		};
 		5FEBE97A1D39715800CADCCE = {
@@ -153,10 +165,7 @@
 				5F995DEA1D3E857900E5944B /* RxSwift Extensions */,
 				5FEFA8D01D3D3C4300D9DE5A /* Stubbed Responses */,
 				5FEBE9861D39715800CADCCE /* AppDelegate.swift */,
-				5F4290F31D4060430077AEC2 /* CALayer+Border.swift */,
-				5F4290F71D40638F0077AEC2 /* Font.swift */,
-				5F4290F51D40610B0077AEC2 /* UIColor+Custom.swift */,
-				5F4291031D4068D30077AEC2 /* UIImage+Color.swift */,
+				5FEAEA4E1D40F91F00EF1717 /* UIKit+Extensions */,
 				5FEBE98D1D39715800CADCCE /* Assets.xcassets */,
 				5FEBE9921D39715800CADCCE /* Info.plist */,
 				5FEBE98F1D39715800CADCCE /* LaunchScreen.storyboard */,
@@ -179,7 +188,7 @@
 			children = (
 				5F995DE71D3DE61500E5944B /* Models */,
 				5FF96AA71D3BE40D00D20DD6 /* Networking */,
-				5F995DF11D3EF80900E5944B /* Trending */,
+				5F995DF11D3EF80900E5944B /* Trending and Search */,
 				5F995DED1D3EB48100E5944B /* ViewModel.swift */,
 				5FF38B2D1D4008B300421BC9 /* GIFViewModel.swift */,
 			);
@@ -329,7 +338,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F995DF31D3EF82200E5944B /* TrendingViewController.swift in Sources */,
+				5F995DF31D3EF82200E5944B /* GIFCollectionViewController.swift in Sources */,
 				5F995DEC1D3E85BC00E5944B /* Observable+JSONAble.swift in Sources */,
 				5F4291041D4068D30077AEC2 /* UIImage+Color.swift in Sources */,
 				5F4290F61D40610B0077AEC2 /* UIColor+Custom.swift in Sources */,
