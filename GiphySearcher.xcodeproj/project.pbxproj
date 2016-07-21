@@ -13,6 +13,9 @@
 		5F4290FE1D40641B0077AEC2 /* Oswald-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5F4290FB1D40641B0077AEC2 /* Oswald-Bold.ttf */; };
 		5F4290FF1D40641B0077AEC2 /* Oswald-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5F4290FC1D40641B0077AEC2 /* Oswald-Light.ttf */; };
 		5F4291001D40641B0077AEC2 /* Oswald-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5F4290FD1D40641B0077AEC2 /* Oswald-Regular.ttf */; };
+		5F4291021D40681D0077AEC2 /* AppNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4291011D40681D0077AEC2 /* AppNavigationBar.swift */; };
+		5F4291041D4068D30077AEC2 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4291031D4068D30077AEC2 /* UIImage+Color.swift */; };
+		5F4291061D4070700077AEC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F4291051D4070700077AEC2 /* Main.storyboard */; };
 		5F995DE91D3DE62400E5944B /* GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F995DE81D3DE62400E5944B /* GIF.swift */; };
 		5F995DEC1D3E85BC00E5944B /* Observable+JSONAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F995DEB1D3E85BC00E5944B /* Observable+JSONAble.swift */; };
 		5F995DEE1D3EB48100E5944B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F995DED1D3EB48100E5944B /* ViewModel.swift */; };
@@ -20,7 +23,6 @@
 		5F995DF51D3F098300E5944B /* Observable+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F995DF41D3F098300E5944B /* Observable+Operators.swift */; };
 		5F995DF71D3F151200E5944B /* GIFCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F995DF61D3F151200E5944B /* GIFCollectionViewCell.swift */; };
 		5FEBE9871D39715800CADCCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBE9861D39715800CADCCE /* AppDelegate.swift */; };
-		5FEBE98C1D39715800CADCCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FEBE98A1D39715800CADCCE /* Main.storyboard */; };
 		5FEBE98E1D39715800CADCCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FEBE98D1D39715800CADCCE /* Assets.xcassets */; };
 		5FEBE9911D39715800CADCCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FEBE98F1D39715800CADCCE /* LaunchScreen.storyboard */; };
 		5FEFA8D31D3D3C5B00D9DE5A /* Search.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FEFA8D11D3D3C5B00D9DE5A /* Search.json */; };
@@ -39,6 +41,9 @@
 		5F4290FB1D40641B0077AEC2 /* Oswald-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Bold.ttf"; sourceTree = "<group>"; };
 		5F4290FC1D40641B0077AEC2 /* Oswald-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Light.ttf"; sourceTree = "<group>"; };
 		5F4290FD1D40641B0077AEC2 /* Oswald-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Regular.ttf"; sourceTree = "<group>"; };
+		5F4291011D40681D0077AEC2 /* AppNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppNavigationBar.swift; path = Views/AppNavigationBar.swift; sourceTree = "<group>"; };
+		5F4291031D4068D30077AEC2 /* UIImage+Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
+		5F4291051D4070700077AEC2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		5F995DE81D3DE62400E5944B /* GIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIF.swift; sourceTree = "<group>"; };
 		5F995DEB1D3E85BC00E5944B /* Observable+JSONAble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+JSONAble.swift"; sourceTree = "<group>"; };
 		5F995DED1D3EB48100E5944B /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -47,7 +52,6 @@
 		5F995DF61D3F151200E5944B /* GIFCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFCollectionViewCell.swift; sourceTree = "<group>"; };
 		5FEBE9831D39715800CADCCE /* GiphySearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiphySearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FEBE9861D39715800CADCCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5FEBE98B1D39715800CADCCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5FEBE98D1D39715800CADCCE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5FEBE9901D39715800CADCCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5FEBE9921D39715800CADCCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -154,10 +158,12 @@
 				5F4290F31D4060430077AEC2 /* CALayer+Border.swift */,
 				5F4290F71D40638F0077AEC2 /* Font.swift */,
 				5F4290F51D40610B0077AEC2 /* UIColor+Custom.swift */,
+				5F4291031D4068D30077AEC2 /* UIImage+Color.swift */,
 				5FEBE98D1D39715800CADCCE /* Assets.xcassets */,
 				5FEBE9921D39715800CADCCE /* Info.plist */,
 				5FEBE98F1D39715800CADCCE /* LaunchScreen.storyboard */,
-				5FEBE98A1D39715800CADCCE /* Main.storyboard */,
+				5F4291011D40681D0077AEC2 /* AppNavigationBar.swift */,
+				5F4291051D4070700077AEC2 /* Main.storyboard */,
 			);
 			path = GiphySearcher;
 			sourceTree = "<group>";
@@ -264,9 +270,9 @@
 				5FEBE9911D39715800CADCCE /* LaunchScreen.storyboard in Resources */,
 				5FEFA8D31D3D3C5B00D9DE5A /* Search.json in Resources */,
 				5FEBE98E1D39715800CADCCE /* Assets.xcassets in Resources */,
+				5F4291061D4070700077AEC2 /* Main.storyboard in Resources */,
 				5F4290FF1D40641B0077AEC2 /* Oswald-Light.ttf in Resources */,
 				5FEFA8D41D3D3C5B00D9DE5A /* Trending.json in Resources */,
-				5FEBE98C1D39715800CADCCE /* Main.storyboard in Resources */,
 				5F4290FE1D40641B0077AEC2 /* Oswald-Bold.ttf in Resources */,
 				5F4291001D40641B0077AEC2 /* Oswald-Regular.ttf in Resources */,
 			);
@@ -329,7 +335,9 @@
 			files = (
 				5F995DF31D3EF82200E5944B /* TrendingViewController.swift in Sources */,
 				5F995DEC1D3E85BC00E5944B /* Observable+JSONAble.swift in Sources */,
+				5F4291041D4068D30077AEC2 /* UIImage+Color.swift in Sources */,
 				5F4290F61D40610B0077AEC2 /* UIColor+Custom.swift in Sources */,
+				5F4291021D40681D0077AEC2 /* AppNavigationBar.swift in Sources */,
 				5F995DEE1D3EB48100E5944B /* ViewModel.swift in Sources */,
 				5FEBE9871D39715800CADCCE /* AppDelegate.swift in Sources */,
 				5F995DF51D3F098300E5944B /* Observable+Operators.swift in Sources */,
@@ -346,15 +354,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		5FEBE98A1D39715800CADCCE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5FEBE98B1D39715800CADCCE /* Base */,
-			);
-			name = Main.storyboard;
-			path = .;
-			sourceTree = "<group>";
-		};
 		5FEBE98F1D39715800CADCCE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

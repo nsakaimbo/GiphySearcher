@@ -31,7 +31,7 @@ class TrendingViewController: UIViewController {
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(collectionView)
-        collectionView.topAnchor.constraintEqualToAnchor(view.topAnchor, constant: 44.0).active = true
+        collectionView.topAnchor.constraintEqualToAnchor(view.topAnchor, constant: 64.0).active = true
         collectionView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor).active = true
         collectionView.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor).active = true
         collectionView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor).active = true
@@ -84,7 +84,7 @@ extension TrendingViewController: UICollectionViewDataSource, UICollectionViewDe
     }
    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 40, left: 20, bottom: 0, right: 20)
+        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     }
 }
 
