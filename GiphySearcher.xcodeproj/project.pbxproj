@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		5F4290F41D4060430077AEC2 /* CALayer+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4290F31D4060430077AEC2 /* CALayer+Border.swift */; };
 		5F4290F61D40610B0077AEC2 /* UIColor+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4290F51D40610B0077AEC2 /* UIColor+Custom.swift */; };
+		5F4290F81D40638F0077AEC2 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4290F71D40638F0077AEC2 /* Font.swift */; };
+		5F4290FE1D40641B0077AEC2 /* Oswald-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5F4290FB1D40641B0077AEC2 /* Oswald-Bold.ttf */; };
+		5F4290FF1D40641B0077AEC2 /* Oswald-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5F4290FC1D40641B0077AEC2 /* Oswald-Light.ttf */; };
+		5F4291001D40641B0077AEC2 /* Oswald-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5F4290FD1D40641B0077AEC2 /* Oswald-Regular.ttf */; };
 		5F995DE91D3DE62400E5944B /* GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F995DE81D3DE62400E5944B /* GIF.swift */; };
 		5F995DEC1D3E85BC00E5944B /* Observable+JSONAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F995DEB1D3E85BC00E5944B /* Observable+JSONAble.swift */; };
 		5F995DEE1D3EB48100E5944B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F995DED1D3EB48100E5944B /* ViewModel.swift */; };
@@ -31,6 +35,10 @@
 		21141C8AF41872932CBC66B7 /* Pods-GiphySearcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiphySearcher.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiphySearcher/Pods-GiphySearcher.debug.xcconfig"; sourceTree = "<group>"; };
 		5F4290F31D4060430077AEC2 /* CALayer+Border.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+Border.swift"; sourceTree = "<group>"; };
 		5F4290F51D40610B0077AEC2 /* UIColor+Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Custom.swift"; sourceTree = "<group>"; };
+		5F4290F71D40638F0077AEC2 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		5F4290FB1D40641B0077AEC2 /* Oswald-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Bold.ttf"; sourceTree = "<group>"; };
+		5F4290FC1D40641B0077AEC2 /* Oswald-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Light.ttf"; sourceTree = "<group>"; };
+		5F4290FD1D40641B0077AEC2 /* Oswald-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Regular.ttf"; sourceTree = "<group>"; };
 		5F995DE81D3DE62400E5944B /* GIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIF.swift; sourceTree = "<group>"; };
 		5F995DEB1D3E85BC00E5944B /* Observable+JSONAble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+JSONAble.swift"; sourceTree = "<group>"; };
 		5F995DED1D3EB48100E5944B /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -71,6 +79,24 @@
 				86A20436F61B85508E303ABD /* Pods-GiphySearcher.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		5F4290F91D4063D00077AEC2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5F4290FA1D4063F70077AEC2 /* Fonts */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		5F4290FA1D4063F70077AEC2 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5F4290FB1D40641B0077AEC2 /* Oswald-Bold.ttf */,
+				5F4290FC1D40641B0077AEC2 /* Oswald-Light.ttf */,
+				5F4290FD1D40641B0077AEC2 /* Oswald-Regular.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		5F995DE71D3DE61500E5944B /* Models */ = {
@@ -120,11 +146,13 @@
 		5FEBE9851D39715800CADCCE /* GiphySearcher */ = {
 			isa = PBXGroup;
 			children = (
+				5F4290F91D4063D00077AEC2 /* Resources */,
 				5FF96AA61D3BE40200D20DD6 /* App */,
 				5F995DEA1D3E857900E5944B /* RxSwift Extensions */,
 				5FEFA8D01D3D3C4300D9DE5A /* Stubbed Responses */,
 				5FEBE9861D39715800CADCCE /* AppDelegate.swift */,
 				5F4290F31D4060430077AEC2 /* CALayer+Border.swift */,
+				5F4290F71D40638F0077AEC2 /* Font.swift */,
 				5F4290F51D40610B0077AEC2 /* UIColor+Custom.swift */,
 				5FEBE98D1D39715800CADCCE /* Assets.xcassets */,
 				5FEBE9921D39715800CADCCE /* Info.plist */,
@@ -236,8 +264,11 @@
 				5FEBE9911D39715800CADCCE /* LaunchScreen.storyboard in Resources */,
 				5FEFA8D31D3D3C5B00D9DE5A /* Search.json in Resources */,
 				5FEBE98E1D39715800CADCCE /* Assets.xcassets in Resources */,
+				5F4290FF1D40641B0077AEC2 /* Oswald-Light.ttf in Resources */,
 				5FEFA8D41D3D3C5B00D9DE5A /* Trending.json in Resources */,
 				5FEBE98C1D39715800CADCCE /* Main.storyboard in Resources */,
+				5F4290FE1D40641B0077AEC2 /* Oswald-Bold.ttf in Resources */,
+				5F4291001D40641B0077AEC2 /* Oswald-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +334,7 @@
 				5FEBE9871D39715800CADCCE /* AppDelegate.swift in Sources */,
 				5F995DF51D3F098300E5944B /* Observable+Operators.swift in Sources */,
 				5FF96AA91D3BE44900D20DD6 /* GiphyAPI.swift in Sources */,
+				5F4290F81D40638F0077AEC2 /* Font.swift in Sources */,
 				5F995DE91D3DE62400E5944B /* GIF.swift in Sources */,
 				5F995DF71D3F151200E5944B /* GIFCollectionViewCell.swift in Sources */,
 				5FF96AAB1D3BEE0800D20DD6 /* Networking.swift in Sources */,
