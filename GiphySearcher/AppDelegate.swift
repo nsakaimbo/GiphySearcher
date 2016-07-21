@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {}
    
     func setupGlobalStyles() {
-        UINavigationBar.appearance().barTintColor = .whiteColor()
+        UINavigationBar.appearance().barTintColor = .blackColor()
         UINavigationBar.appearance().setBackgroundImage(.imageWithColor(.whiteColor()), forBarPosition: .Any, barMetrics: .Default)
         UINavigationBar.appearance().shadowImage =  .imageWithColor(.whiteColor())
     }

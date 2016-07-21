@@ -1,12 +1,9 @@
-import FLAnimatedImage
-import SDWebImage
-import RxSwift
 import UIKit
 
-class TrendingViewController: UIViewController {
-    
-    private let API = Networking()
+class AppViewController: UIViewController {
 
+    private let API = Networking()
+    
     var downloadImage: GIFCollectionViewCell.DownloadImageClosure = { (url, imageView) in
         if let url = url {
             imageView.sd_setImageWithURL(url)
@@ -27,10 +24,10 @@ class TrendingViewController: UIViewController {
     lazy var collectionView: UICollectionView = { return .trendingCollectionViewWithDelegateDatasource(self) } ()
     
     var searchTextField: UITextField = { return TrendingViewController._searchTextField() }()
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        
         layoutCustomViewProperties()
         
         // reactive bindings
@@ -40,15 +37,15 @@ class TrendingViewController: UIViewController {
             .subscribeNext { (updated) in
                 self.collectionView.reloadData()
             }
-        .addDisposableTo(rx_disposeBag)
+            .addDisposableTo(rx_disposeBag)
         
         searchTextField.rx_controlEvent(.EditingDidEndOnExit)
             .subscribeNext { [weak self] in
                 self?.searchTextField.resignFirstResponder()
-        }
+            }
             .addDisposableTo(rx_disposeBag)
     }
-   
+    
     private func layoutCustomViewProperties() {
         searchTextField.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(searchTextField)
@@ -79,13 +76,13 @@ class TrendingViewController: UIViewController {
 }
 
 extension TrendingViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-   
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfGIFs
     }
-   
+    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-       
+        
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(String(GIFCollectionViewCell), forIndexPath: indexPath)
         
         if let cell = cell as? GIFCollectionViewCell {
@@ -98,7 +95,7 @@ extension TrendingViewController: UICollectionViewDataSource, UICollectionViewDe
         
         return cell
     }
-   
+    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
         let GIF = viewModel.GIFAtIndexPath(indexPath)
@@ -110,7 +107,7 @@ extension TrendingViewController: UICollectionViewDataSource, UICollectionViewDe
         
         return CGSize(width: 100, height: 100)
     }
-   
+    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     }
@@ -131,4 +128,5 @@ extension UICollectionView {
         collectionView.allowsSelection = false
         return collectionView
     }
+
 }

@@ -35,7 +35,7 @@ class GIFCollectionViewCell: UICollectionViewCell {
     
     private func setup() {
         
-        contentView.backgroundColor = .lightGrayColor()
+        contentView.backgroundColor = Color.Gray.Light
         backgroundColor = .clearColor()
         
         layer.shadowColor = UIColor.blackColor().CGColor

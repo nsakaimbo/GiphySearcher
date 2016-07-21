@@ -20,10 +20,31 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="15T-a9-b9x"/>
+                    <connections>
+                        <segue destination="McP-93-JA2" kind="show" identifier="SearchResultsViewController" id="4qe-Ir-hY7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yeb-Vs-ZIv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1027" y="344"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="AfE-43-HSa">
+            <objects>
+                <viewController id="McP-93-JA2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EHB-5f-E88"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gf7-te-7ET"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Bw9-tb-DJ5">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="90b-pz-ef2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1798" y="344"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="I0F-Lx-Pym">
