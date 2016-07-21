@@ -15,6 +15,7 @@
 		5F4291001D40641B0077AEC2 /* Oswald-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5F4290FD1D40641B0077AEC2 /* Oswald-Regular.ttf */; };
 		5F4291021D40681D0077AEC2 /* AppNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4291011D40681D0077AEC2 /* AppNavigationBar.swift */; };
 		5F4291041D4068D30077AEC2 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4291031D4068D30077AEC2 /* UIImage+Color.swift */; };
+		5F872C361D418B8600A64C5E /* dancing_abe.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5F872C351D418B8600A64C5E /* dancing_abe.gif */; };
 		5F995DE91D3DE62400E5944B /* GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F995DE81D3DE62400E5944B /* GIF.swift */; };
 		5F995DEC1D3E85BC00E5944B /* Observable+JSONAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F995DEB1D3E85BC00E5944B /* Observable+JSONAble.swift */; };
 		5F995DEE1D3EB48100E5944B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F995DED1D3EB48100E5944B /* ViewModel.swift */; };
@@ -42,6 +43,7 @@
 		5F4290FD1D40641B0077AEC2 /* Oswald-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Regular.ttf"; sourceTree = "<group>"; };
 		5F4291011D40681D0077AEC2 /* AppNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppNavigationBar.swift; path = Views/AppNavigationBar.swift; sourceTree = "<group>"; };
 		5F4291031D4068D30077AEC2 /* UIImage+Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
+		5F872C351D418B8600A64C5E /* dancing_abe.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = dancing_abe.gif; sourceTree = "<group>"; };
 		5F995DE81D3DE62400E5944B /* GIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIF.swift; sourceTree = "<group>"; };
 		5F995DEB1D3E85BC00E5944B /* Observable+JSONAble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+JSONAble.swift"; sourceTree = "<group>"; };
 		5F995DED1D3EB48100E5944B /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 		5F4290F91D4063D00077AEC2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5F872C341D418B6700A64C5E /* Assets */,
 				5F4290FA1D4063F70077AEC2 /* Fonts */,
 			);
 			name = Resources;
@@ -99,6 +102,14 @@
 				5F4290FD1D40641B0077AEC2 /* Oswald-Regular.ttf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		5F872C341D418B6700A64C5E /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				5F872C351D418B8600A64C5E /* dancing_abe.gif */,
+			);
+			name = Assets;
 			sourceTree = "<group>";
 		};
 		5F995DE71D3DE61500E5944B /* Models */ = {
@@ -279,6 +290,7 @@
 				5F4290FF1D40641B0077AEC2 /* Oswald-Light.ttf in Resources */,
 				5FEFA8D41D3D3C5B00D9DE5A /* Trending.json in Resources */,
 				5F4290FE1D40641B0077AEC2 /* Oswald-Bold.ttf in Resources */,
+				5F872C361D418B8600A64C5E /* dancing_abe.gif in Resources */,
 				5F4291001D40641B0077AEC2 /* Oswald-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
