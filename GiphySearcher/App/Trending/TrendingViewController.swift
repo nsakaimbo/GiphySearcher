@@ -3,12 +3,32 @@ import SDWebImage
 import RxSwift
 import UIKit
 
-class GIFCollectionViewController: UIViewController {
+final class GIFCollectionViewController: UIViewController {
    
     enum Configuration {
         case ShowTrending
         case ShowSearchResults(query: String)
+        
+        var endpoint: GiphyAPI {
+            switch self {
+            case .ShowTrending:
+                return .Trending
+            case let .ShowSearchResults(query):
+                return .Search(query: query)
+            }
+        }
+        
+        var isShowingSearchResults:Bool {
+            switch self {
+            case .ShowSearchResults:
+                return true
+            default:
+                return false
+            }
+        }
     }
+   
+    var configuration: Configuration = .ShowTrending
     
     var API: Networking!
 
@@ -25,14 +45,21 @@ class GIFCollectionViewController: UIViewController {
         imageView.sd_cancelCurrentImageLoad()
     }
     
-    lazy var viewModel: ViewModelType = {
-        return ViewModel(API: self.API, endpoint: .Trending)
-    }()
+    var viewModel: ViewModelType!
     
     lazy var collectionView: UICollectionView = { return .trendingCollectionViewWithDelegateDatasource(self) } ()
     
-    var searchTextField: UITextField = { return GIFCollectionViewController._searchTextField() }()
-  
+    var searchTextField: UITextField!
+    var searchQueryHeader: UILabel!
+   
+    private let headerHeight: CGFloat = 64.0
+    private let navigationBarHeight: CGFloat = 44.0
+    private let statusBarHeight: CGFloat = 20.0
+    
+    convenience init(configuration: Configuration) {
+        self.init()
+        self.configuration = configuration
+    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -44,15 +71,13 @@ class GIFCollectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+     
+        viewModel = ViewModel(API: API, endpoint: configuration.endpoint)
+        
         edgesForExtendedLayout = .Top
-       
         view.backgroundColor = .whiteColor()
         
-        layoutCustomViewProperties()
-        
         // reactive bindings
-        
         viewModel
             .updatedContents
             .subscribeNext { (updated) in
@@ -60,27 +85,60 @@ class GIFCollectionViewController: UIViewController {
             }
         .addDisposableTo(rx_disposeBag)
         
-        searchTextField.rx_controlEvent(.EditingDidEndOnExit)
-            .subscribeNext { [weak self] in
-                self?.searchTextField.resignFirstResponder()
+        switch configuration {
+            
+        case .ShowTrending:
+            // show search textField in trending view
+            searchTextField = GIFCollectionViewController._searchTextField()
+            
+            searchTextField.rx_controlEvent(.EditingDidEndOnExit)
+                .subscribeNext { [weak self] in
+                    let query = self?.searchTextField.text
+                    self?.searchTextField.resignFirstResponder()
+                    let searchVC = GIFCollectionViewController(configuration: .ShowSearchResults(query: query!))
+                    searchVC.API = self?.API
+                    self?.navigationController?.pushViewController(searchVC, animated: true)
+                }
+                .addDisposableTo(rx_disposeBag)
+            
+        case let .ShowSearchResults(query):
+            // show header
+            searchQueryHeader = GIFCollectionViewController._searchQueryHeader()
+            searchQueryHeader.text = "Search results for " + "\"\(query)\""
         }
-            .addDisposableTo(rx_disposeBag)
+        
+        layoutCustomViewProperties()
     }
-   
+ 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        searchTextField?.text = nil
+    }
+    
     private func layoutCustomViewProperties() {
-        searchTextField.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(searchTextField)
-        searchTextField.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor, constant: 10.0).active = true
-        searchTextField.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor, constant: -10.0).active = true
-        searchTextField.topAnchor.constraintEqualToAnchor(view.topAnchor, constant: 10.0).active = true
-        searchTextField.heightAnchor.constraintEqualToConstant(64.0).active = true
+       
+        if !configuration.isShowingSearchResults {
+           layoutHeader(searchTextField)
+        }
+        else {
+            layoutHeader(searchQueryHeader)
+        }
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(collectionView)
-        collectionView.topAnchor.constraintEqualToAnchor(searchTextField.bottomAnchor, constant: 40.0).active = true
+        collectionView.topAnchor.constraintEqualToAnchor(view.topAnchor, constant: headerHeight + navigationBarHeight + statusBarHeight + 40.0).active = true
         collectionView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor).active = true
         collectionView.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor).active = true
         collectionView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor).active = true
+    }
+   
+    func layoutHeader(header: UIView) {
+        header.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(header)
+        header.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor, constant: 10.0).active = true
+        header.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor, constant: -10.0).active = true
+        header.topAnchor.constraintEqualToAnchor(view.topAnchor, constant: 10.0).active = true
+        header.heightAnchor.constraintEqualToConstant(headerHeight).active = true
     }
     
     class func _searchTextField() -> UITextField {
@@ -93,6 +151,15 @@ class GIFCollectionViewController: UIViewController {
         tf.tintColor = .blackColor()
         tf.returnKeyType = .Search
         return tf
+    }
+    
+    class func _searchQueryHeader() -> UILabel {
+        let lbl = UILabel()
+        lbl.backgroundColor = .whiteColor()
+        lbl.font = UIFont(name: Font.Bold, size: 35.0)
+        lbl.textAlignment = .Center
+        lbl.textColor = Color.Gray.Medium
+        return lbl
     }
 }
 
@@ -110,10 +177,9 @@ extension GIFCollectionViewController: UICollectionViewDataSource, UICollectionV
             
             cell.downloadImage = downloadImage
             cell.cancelDownloadImage = cancelDownloadImage
-            let cellViewModel = viewModel.GIFViewModelAtIndexPath(indexPath, canShowTrendingIcon: false)
+            let cellViewModel = viewModel.GIFViewModelAtIndexPath(indexPath, canShowTrendingIcon: configuration.isShowingSearchResults)
             cell.setViewModel(cellViewModel)
         }
-        
         return cell
     }
    

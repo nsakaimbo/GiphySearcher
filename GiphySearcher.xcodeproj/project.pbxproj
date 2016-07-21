@@ -101,13 +101,6 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
-		5F4291071D4080540077AEC2 /* Search */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Search;
-			sourceTree = "<group>";
-		};
 		5F995DE71D3DE61500E5944B /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,7 +177,6 @@
 		5FF96AA61D3BE40200D20DD6 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				5F4291071D4080540077AEC2 /* Search */,
 				5F995DE71D3DE61500E5944B /* Models */,
 				5FF96AA71D3BE40D00D20DD6 /* Networking */,
 				5F995DF11D3EF80900E5944B /* Trending */,
