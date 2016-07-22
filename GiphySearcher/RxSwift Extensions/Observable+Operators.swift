@@ -1,5 +1,7 @@
 import RxSwift
 
+// Reference: https://github.com/artsy/eidolon/blob/master/Kiosk/Observable%2BOperators.swift
+
 private let backgroundScheduler = SerialDispatchQueueScheduler(globalConcurrentQueueQOS: .Default)
 
 extension Observable where Element: Equatable {

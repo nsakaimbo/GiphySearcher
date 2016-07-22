@@ -3,6 +3,8 @@ import Moya
 import RxSwift
 import SwiftyJSON
 
+// Reference: https://github.com/artsy/eidolon/blob/master/Kiosk/Observable%2BJSONAble.swift
+
 enum JSONError: String {
     case CouldNotParse
     case MissingData
