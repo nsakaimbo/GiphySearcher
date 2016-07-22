@@ -89,6 +89,8 @@ final class GIFCollectionViewController: UIViewController {
         switch configuration {
             
         case .ShowTrending:
+            self.navigationItem.title = "Trending"
+            
             // show search textField in trending view
             searchTextField = GIFCollectionViewController._searchTextField()
             
@@ -103,6 +105,8 @@ final class GIFCollectionViewController: UIViewController {
                 .addDisposableTo(rx_disposeBag)
             
         case let .ShowSearchResults(query):
+            self.navigationItem.title = "Search Results"
+            
             // show header
             searchQueryHeader = GIFCollectionViewController._searchQueryHeader()
             searchQueryHeader.text = "Search results for " + "\"\(query.TrimmedString)\""
@@ -145,6 +149,10 @@ final class GIFCollectionViewController: UIViewController {
         header.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor, constant: -10.0).active = true
         header.topAnchor.constraintEqualToAnchor(view.topAnchor, constant: 10.0).active = true
         header.heightAnchor.constraintEqualToConstant(headerHeight).active = true
+    }
+    
+    override func viewDidLayoutSubviews() {
+        searchTextField?.layer.addBorder(.Bottom, color: Color.Gray.Medium, thickness: 4.0)
     }
     
     class func _searchTextField() -> UITextField {

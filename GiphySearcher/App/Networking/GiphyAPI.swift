@@ -33,9 +33,9 @@ extension GiphyAPI: TargetType {
     var parameters: [String: AnyObject]? {
         switch self {
         case .Search (let query):
-            return ["q": query.PlusEncodedString, "api_key": API_KEY]
+            return ["q": query.PlusEncodedString, "api_key": API_KEY, "limit": 100]
         case .Trending:
-            return ["api_key": API_KEY]
+            return ["api_key": API_KEY, "limit": 100]
         }
     }
     
