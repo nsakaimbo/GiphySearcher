@@ -40,9 +40,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {}
    
     func setupGlobalStyles() {
-        UINavigationBar.appearance().barTintColor = .blackColor()
+        UINavigationBar.appearance().tintColor = Color.Gray.Dark
         UINavigationBar.appearance().setBackgroundImage(.imageWithColor(.whiteColor()), forBarPosition: .Any, barMetrics: .Default)
         UINavigationBar.appearance().shadowImage =  .imageWithColor(.whiteColor())
+        UINavigationBar.appearance().titleTextAttributes = [
+            NSForegroundColorAttributeName: Color.Gray.Dark,
+            NSFontAttributeName: UIFont(name: Font.Regular, size: 30)!
+        ]
+        UIBarButtonItem.appearance().setTitleTextAttributes([
+            NSForegroundColorAttributeName: Color.Gray.Dark,
+            NSFontAttributeName: UIFont(name: Font.Regular, size: 20)!
+            ]
+            , forState: .Normal)
     }
-    
 }
