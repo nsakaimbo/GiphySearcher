@@ -25,6 +25,7 @@
 		5F995DF31D3EF82200E5944B /* GIFCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F995DF21D3EF82200E5944B /* GIFCollectionViewController.swift */; };
 		5F995DF51D3F098300E5944B /* Observable+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F995DF41D3F098300E5944B /* Observable+Operators.swift */; };
 		5F995DF71D3F151200E5944B /* GIFCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F995DF61D3F151200E5944B /* GIFCollectionViewCell.swift */; };
+		5FDB29FB1D41C9B2009DA0C2 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5FDB29FA1D41C9B2009DA0C2 /* .gitignore */; };
 		5FEBE9871D39715800CADCCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBE9861D39715800CADCCE /* AppDelegate.swift */; };
 		5FEBE98E1D39715800CADCCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FEBE98D1D39715800CADCCE /* Assets.xcassets */; };
 		5FEBE9911D39715800CADCCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FEBE98F1D39715800CADCCE /* LaunchScreen.storyboard */; };
@@ -56,6 +57,7 @@
 		5F995DF21D3EF82200E5944B /* GIFCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFCollectionViewController.swift; sourceTree = "<group>"; };
 		5F995DF41D3F098300E5944B /* Observable+Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+Operators.swift"; sourceTree = "<group>"; };
 		5F995DF61D3F151200E5944B /* GIFCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFCollectionViewCell.swift; sourceTree = "<group>"; };
+		5FDB29FA1D41C9B2009DA0C2 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		5FEBE9831D39715800CADCCE /* GiphySearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiphySearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FEBE9861D39715800CADCCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FEBE98D1D39715800CADCCE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 		5FEBE97A1D39715800CADCCE = {
 			isa = PBXGroup;
 			children = (
+				5FDB29FA1D41C9B2009DA0C2 /* .gitignore */,
 				F46B38482C6624BAF7796793 /* Frameworks */,
 				5FEBE9851D39715800CADCCE /* GiphySearcher */,
 				2EF9C63C094207228F83775A /* Pods */,
@@ -299,6 +302,7 @@
 				5FEFA8D41D3D3C5B00D9DE5A /* Trending.json in Resources */,
 				5F4290FE1D40641B0077AEC2 /* Oswald-Bold.ttf in Resources */,
 				5F872C361D418B8600A64C5E /* dancing_abe.gif in Resources */,
+				5FDB29FB1D41C9B2009DA0C2 /* .gitignore in Resources */,
 				5F4291001D40641B0077AEC2 /* Oswald-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
