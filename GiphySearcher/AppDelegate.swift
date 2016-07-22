@@ -20,11 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ImageManager.shared = ImageManager(configuration: ImageManagerConfiguration(loader: loader, cache: cache))
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        let trendingViewController = GIFCollectionViewController()
-        trendingViewController.API = API
-        let navigationController = UINavigationController(rootViewController: trendingViewController)
+        let appViewController = AppViewController()
+        appViewController.API = API
         window?.backgroundColor = .blackColor()
-        window?.rootViewController = navigationController
+        window?.rootViewController = appViewController
         window?.makeKeyAndVisible()
         
         return true
