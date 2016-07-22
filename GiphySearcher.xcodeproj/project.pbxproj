@@ -44,7 +44,7 @@
 		5F4290FB1D40641B0077AEC2 /* Oswald-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Bold.ttf"; sourceTree = "<group>"; };
 		5F4290FC1D40641B0077AEC2 /* Oswald-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Light.ttf"; sourceTree = "<group>"; };
 		5F4290FD1D40641B0077AEC2 /* Oswald-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Regular.ttf"; sourceTree = "<group>"; };
-		5F4291011D40681D0077AEC2 /* AppNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppNavigationBar.swift; path = Views/AppNavigationBar.swift; sourceTree = "<group>"; };
+		5F4291011D40681D0077AEC2 /* AppNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNavigationBar.swift; sourceTree = "<group>"; };
 		5F4291031D4068D30077AEC2 /* UIImage+Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		5F872C351D418B8600A64C5E /* dancing_abe.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = dancing_abe.gif; sourceTree = "<group>"; };
 		5F872C3E1D41BCA100A64C5E /* AppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
@@ -97,7 +97,7 @@
 				5F872C341D418B6700A64C5E /* Assets */,
 				5F4290FA1D4063F70077AEC2 /* Fonts */,
 			);
-			name = Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		5F4290FA1D4063F70077AEC2 /* Fonts */ = {
@@ -107,7 +107,7 @@
 				5F4290FC1D40641B0077AEC2 /* Oswald-Light.ttf */,
 				5F4290FD1D40641B0077AEC2 /* Oswald-Regular.ttf */,
 			);
-			name = Fonts;
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		5F872C341D418B6700A64C5E /* Assets */ = {
@@ -115,7 +115,7 @@
 			children = (
 				5F872C351D418B8600A64C5E /* dancing_abe.gif */,
 			);
-			name = Assets;
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		5F995DE71D3DE61500E5944B /* Models */ = {
@@ -138,12 +138,11 @@
 		5F995DF11D3EF80900E5944B /* Trending and Search */ = {
 			isa = PBXGroup;
 			children = (
-				5F995DF21D3EF82200E5944B /* GIFCollectionViewController.swift */,
-				5F872C421D41C3FC00A64C5E /* GIFCollectionViewController+DelegateDatasource.swift */,
 				5F995DF61D3F151200E5944B /* GIFCollectionViewCell.swift */,
+				5F872C421D41C3FC00A64C5E /* GIFCollectionViewController+DelegateDatasource.swift */,
+				5F995DF21D3EF82200E5944B /* GIFCollectionViewController.swift */,
 			);
-			name = "Trending and Search";
-			path = Trending;
+			path = "Trending and Search";
 			sourceTree = "<group>";
 		};
 		5FEAEA4E1D40F91F00EF1717 /* UIKit+Extensions */ = {
@@ -151,11 +150,11 @@
 			children = (
 				5F4290F31D4060430077AEC2 /* CALayer+Border.swift */,
 				5F4290F71D40638F0077AEC2 /* Font.swift */,
+				5F872C401D41C30800A64C5E /* UICollectionView+GIFCollectionView.swift */,
 				5F4290F51D40610B0077AEC2 /* UIColor+Custom.swift */,
 				5F4291031D4068D30077AEC2 /* UIImage+Color.swift */,
-				5F872C401D41C30800A64C5E /* UICollectionView+GIFCollectionView.swift */,
 			);
-			name = "UIKit+Extensions";
+			path = "UIKit+Extensions";
 			sourceTree = "<group>";
 		};
 		5FEBE97A1D39715800CADCCE = {
@@ -179,16 +178,16 @@
 		5FEBE9851D39715800CADCCE /* GiphySearcher */ = {
 			isa = PBXGroup;
 			children = (
-				5F4290F91D4063D00077AEC2 /* Resources */,
 				5FF96AA61D3BE40200D20DD6 /* App */,
+				5F4290F91D4063D00077AEC2 /* Resources */,
 				5F995DEA1D3E857900E5944B /* RxSwift Extensions */,
 				5FEFA8D01D3D3C4300D9DE5A /* Stubbed Responses */,
-				5FEBE9861D39715800CADCCE /* AppDelegate.swift */,
 				5FEAEA4E1D40F91F00EF1717 /* UIKit+Extensions */,
+				5FEBE9861D39715800CADCCE /* AppDelegate.swift */,
+				5F4291011D40681D0077AEC2 /* AppNavigationBar.swift */,
 				5FEBE98D1D39715800CADCCE /* Assets.xcassets */,
 				5FEBE9921D39715800CADCCE /* Info.plist */,
 				5FEBE98F1D39715800CADCCE /* LaunchScreen.storyboard */,
-				5F4291011D40681D0077AEC2 /* AppNavigationBar.swift */,
 			);
 			path = GiphySearcher;
 			sourceTree = "<group>";
@@ -208,9 +207,9 @@
 				5F995DE71D3DE61500E5944B /* Models */,
 				5FF96AA71D3BE40D00D20DD6 /* Networking */,
 				5F995DF11D3EF80900E5944B /* Trending and Search */,
-				5F995DED1D3EB48100E5944B /* ViewModel.swift */,
-				5FF38B2D1D4008B300421BC9 /* GIFViewModel.swift */,
 				5F872C3E1D41BCA100A64C5E /* AppViewController.swift */,
+				5FF38B2D1D4008B300421BC9 /* GIFViewModel.swift */,
+				5F995DED1D3EB48100E5944B /* ViewModel.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
