@@ -73,46 +73,48 @@ final class GIFCollectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
   
-        viewModel = ViewModel(API: API, endpoint: configuration.endpoint)
-        
         edgesForExtendedLayout = .Top
         view.backgroundColor = .whiteColor()
         
+        viewModel = ViewModel(API: API, endpoint: configuration.endpoint)
+        
         // reactive bindings
+        setViewModelSubscriptions()
+        
+        searchTextField = GIFCollectionViewController._searchTextField()
+        
+        searchTextField.rx_controlEvent(.EditingChanged)
+            .subscribeNext { [weak self] in
+                
+                guard let query = self?.searchTextField.text,
+                    let _api = self?.API else {
+                        return
+                }
+                
+                self?.configuration = query.isEmpty ? Configuration.ShowTrending : Configuration.ShowSearchResults(query: query)
+                guard let endpoint = self?.configuration.endpoint else { return }
+                
+                self?.viewModel = ViewModel(API: _api, endpoint: endpoint)
+                self?.setViewModelSubscriptions()
+            }
+            .addDisposableTo(rx_disposeBag)
+        
+        searchTextField.rx_controlEvent(.EditingDidEndOnExit)
+            .subscribeNext { [weak self] in
+                self?.searchTextField.resignFirstResponder()
+            }
+            .addDisposableTo(rx_disposeBag)
+        
+        layoutCustomViewProperties()
+    }
+   
+    func setViewModelSubscriptions() {
         viewModel
             .updatedContents
             .subscribeNext { (updated) in
                 self.collectionView.reloadData()
             }
-        .addDisposableTo(rx_disposeBag)
-        
-        switch configuration {
-            
-        case .ShowTrending:
-            self.navigationItem.title = "Trending"
-            
-            // show search textField in trending view
-            searchTextField = GIFCollectionViewController._searchTextField()
-            
-            searchTextField.rx_controlEvent(.EditingDidEndOnExit)
-                .subscribeNext { [weak self] in
-                    let query = self?.searchTextField.text
-                    self?.searchTextField.resignFirstResponder()
-                    let searchVC = GIFCollectionViewController(configuration: .ShowSearchResults(query: query!))
-                    searchVC.API = self?.API
-                    self?.navigationController?.pushViewController(searchVC, animated: true)
-                }
-                .addDisposableTo(rx_disposeBag)
-            
-        case let .ShowSearchResults(query):
-            self.navigationItem.title = "Search Results"
-            
-            // show header
-            searchQueryHeader = GIFCollectionViewController._searchQueryHeader()
-            searchQueryHeader.text = "Search results for " + "\"\(query.TrimmedString)\""
-        }
-        
-        layoutCustomViewProperties()
+            .addDisposableTo(rx_disposeBag)
     }
     
     override func viewWillAppear(animated: Bool) {
