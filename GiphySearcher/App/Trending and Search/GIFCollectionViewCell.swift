@@ -6,8 +6,8 @@ import UIKit
 
 class GIFCollectionViewCell: UICollectionViewCell {
     
-    typealias DownloadImageClosure = (url: NSURL?, imageView: FLAnimatedImageView) -> ()
-    typealias CancelDownloadImageClosure = (imageView: FLAnimatedImageView) -> ()
+    typealias DownloadImageClosure = (_ url: URL?, _ imageView: FLAnimatedImageView) -> ()
+    typealias CancelDownloadImageClosure = (_ imageView: FLAnimatedImageView) -> ()
     
     let imageView: FLAnimatedImageView = GIFCollectionViewCell._imageView()
 
@@ -19,7 +19,7 @@ class GIFCollectionViewCell: UICollectionViewCell {
     var reuseBag: DisposeBag?
    
     var viewModel = PublishSubject<GIFViewModel>()
-    func setViewModel(newViewModel: GIFViewModel) {
+    func setViewModel(_ newViewModel: GIFViewModel) {
         self.viewModel.onNext(newViewModel)
     }
     
@@ -33,49 +33,49 @@ class GIFCollectionViewCell: UICollectionViewCell {
         setup()
     }
     
-    private func setup() {
+    fileprivate func setup() {
         
         contentView.backgroundColor = Color.Gray.Light
-        backgroundColor = .clearColor()
+        backgroundColor = .clear
         
-        layer.shadowColor = UIColor.blackColor().CGColor
+        layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.5
         layer.shadowOffset = CGSize.zero
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(imageView)
-        imageView.leadingAnchor.constraintEqualToAnchor(contentView.leadingAnchor).active = true
-        imageView.topAnchor.constraintEqualToAnchor(contentView.topAnchor).active = true
-        imageView.trailingAnchor.constraintEqualToAnchor(contentView.trailingAnchor).active = true
-        imageView.bottomAnchor.constraintEqualToAnchor(contentView.bottomAnchor).active = true
+        imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        imageView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         
         icon.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(icon)
-        icon.widthAnchor.constraintEqualToConstant(20.0).active = true
-        icon.heightAnchor.constraintEqualToConstant(20.0).active = true
-        icon.trailingAnchor.constraintEqualToAnchor(contentView.trailingAnchor, constant: -5.0).active = true
-        icon.bottomAnchor.constraintEqualToAnchor(contentView.bottomAnchor, constant: -5.0).active = true
+        icon.widthAnchor.constraint(equalToConstant: 20.0).isActive = true
+        icon.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+        icon.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5.0).isActive = true
+        icon.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5.0).isActive = true
         
         setupSubscriptions()
     }
     
     class func _imageView() -> FLAnimatedImageView {
         let imageView = FLAnimatedImageView()
-        imageView.contentMode = .ScaleAspectFill
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }
     
     class func _icon() -> UIImageView {
         let icon = UIImageView(image: UIImage(named: "TrendingIcon"))
-        icon.backgroundColor = .clearColor()
-        icon.tintColor = .whiteColor()
-        icon.contentMode = .ScaleAspectFill
+        icon.backgroundColor = .clear
+        icon.tintColor = .white
+        icon.contentMode = .scaleAspectFill
         return icon
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        cancelDownloadImage?(imageView: imageView)
+        cancelDownloadImage?(imageView)
         setupSubscriptions()
     }
     
@@ -85,23 +85,23 @@ class GIFCollectionViewCell: UICollectionViewCell {
         
         guard let reuseBag = reuseBag else { return }
         
-        viewModel.map { (viewModel) -> NSURL? in
+        viewModel.map { (viewModel) -> URL? in
             return viewModel.thumbnailURL
-        }.subscribeNext { [weak self] url in
+        }.subscribe { [weak self] url in
             // we need an unwrapped imageView to pass to our download handler
             guard let imageView = self?.imageView else { return }
-            self?.downloadImage?(url: url, imageView: imageView)
+            self?.downloadImage?(url.element!!, imageView)
         }.addDisposableTo(reuseBag)
        
         viewModel.map { (viewModel) -> Bool in
             if let didTrend = try? viewModel.hasEverTrended.value(),
-                shouldShow = try? viewModel.canShowTrendingIcon.value() {
+                let shouldShow = try? viewModel.canShowTrendingIcon.value() {
                 return !(didTrend && shouldShow)
             }
             // icon is hidden by default
             return true
         }
-        .bindTo(self.icon.rx_hidden)
+        .bindTo(self.icon.rx.hidden)
         .addDisposableTo(reuseBag)
     }
 }

@@ -10,9 +10,9 @@ protocol ViewModelType {
     var numberOfGIFs: Int { get }
     var updatedContents: Observable<Bool> { get }
     
-    func GIFAtIndexPath(indexPath: NSIndexPath) -> GIF
+    func GIFAtIndexPath(_ indexPath: IndexPath) -> GIF
     
-    func GIFViewModelAtIndexPath(indexPath: NSIndexPath, canShowTrendingIcon: Bool) -> GIFViewModel
+    func GIFViewModelAtIndexPath(_ indexPath: IndexPath, canShowTrendingIcon: Bool) -> GIFViewModel
 }
 
 class ViewModel: NSObject, ViewModelType {
@@ -31,7 +31,7 @@ class ViewModel: NSObject, ViewModelType {
         super.init()
         
         fetch(API)
-            .subscribeNext({
+            .subscribe(onNext: {
                 self.GIFArray.value += $0
             })
             .addDisposableTo(rx_disposeBag)
@@ -41,11 +41,11 @@ class ViewModel: NSObject, ViewModelType {
         return GIFArray.value.count
     }
     
-    func GIFAtIndexPath(indexPath: NSIndexPath) -> GIF {
+    func GIFAtIndexPath(_ indexPath: IndexPath) -> GIF {
         return GIFArray.value[indexPath.item]
     }
     
-    func GIFViewModelAtIndexPath(indexPath: NSIndexPath, canShowTrendingIcon: Bool = false) -> GIFViewModel {
+    func GIFViewModelAtIndexPath(_ indexPath: IndexPath, canShowTrendingIcon: Bool = false) -> GIFViewModel {
         let gif = GIFAtIndexPath(indexPath)
         return GIFViewModel(gif: gif, canShowTrendingIcon: canShowTrendingIcon)
     }
@@ -57,9 +57,7 @@ class ViewModel: NSObject, ViewModelType {
             .ignore(false)
     }
     
-    // MARK: Private Methods
-    
-    func fetch(API: Networking) -> Observable<[GIF]> {
+    func fetch(_ API: Networking) -> Observable<[GIF]> {
         return API.provider.request(self.endpoint)
             .filterSuccessfulStatusCodes()
             .mapJSON()

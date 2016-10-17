@@ -1,6 +1,6 @@
 import UIKit
 import Nuke
-import NukeAnimatedImagePlugin
+import NukeFLAnimatedImagePlugin
 import RxSwift
 
 @UIApplicationMain
@@ -8,41 +8,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
    
-    private(set) var API: Networking = Networking()
+    fileprivate(set) var API: Networking = Networking()
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         setupGlobalStyles()
-      
-        let decoder = ImageDecoderComposition(decoders: [AnimatedImageDecoder(), ImageDecoder()])
-        let loader = ImageLoader(configuration: ImageLoaderConfiguration(dataLoader: ImageDataLoader(), decoder: decoder), delegate: AnimatedImageLoaderDelegate())
-        let cache = AnimatedImageMemoryCache()
-        ImageManager.shared = ImageManager(configuration: ImageManagerConfiguration(loader: loader, cache: cache))
         
-        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window = UIWindow(frame: UIScreen.main.bounds)
         let appViewController = AppViewController()
         appViewController.API = API
-        window?.backgroundColor = .blackColor()
+        window?.backgroundColor = .black
         window?.rootViewController = appViewController
         window?.makeKeyAndVisible()
         
         return true
     }
     
-    func applicationWillResignActive(application: UIApplication) {}
+    func applicationWillResignActive(_ application: UIApplication) {}
     
-    func applicationDidEnterBackground(application: UIApplication) {}
+    func applicationDidEnterBackground(_ application: UIApplication) {}
     
-    func applicationWillEnterForeground(application: UIApplication) {}
+    func applicationWillEnterForeground(_ application: UIApplication) {}
     
-    func applicationDidBecomeActive(application: UIApplication) {}
+    func applicationDidBecomeActive(_ application: UIApplication) {}
     
-    func applicationWillTerminate(application: UIApplication) {}
+    func applicationWillTerminate(_ application: UIApplication) {}
    
     func setupGlobalStyles() {
+        
         UINavigationBar.appearance().tintColor = Color.Gray.Dark
-        UINavigationBar.appearance().setBackgroundImage(.imageWithColor(.whiteColor()), forBarPosition: .Any, barMetrics: .Default)
-        UINavigationBar.appearance().shadowImage =  .imageWithColor(.whiteColor())
+        UINavigationBar.appearance().setBackgroundImage(.imageWithColor(.white), for: .any, barMetrics: .default)
+        UINavigationBar.appearance().shadowImage =  .imageWithColor(.white)
         UINavigationBar.appearance().titleTextAttributes = [
             NSForegroundColorAttributeName: Color.Gray.Dark,
             NSFontAttributeName: UIFont(name: Font.Regular, size: 30)!
@@ -51,6 +47,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSForegroundColorAttributeName: Color.Gray.Dark,
             NSFontAttributeName: UIFont(name: Font.Regular, size: 20)!
             ]
-            , forState: .Normal)
+            , for: .normal)
     }
 }

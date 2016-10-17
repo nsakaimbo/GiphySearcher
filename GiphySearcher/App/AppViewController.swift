@@ -8,38 +8,38 @@ class AppViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        view.backgroundColor = .whiteColor()
+        view.backgroundColor = .white
         
         let imageView = FLAnimatedImageView()
         
         let image: FLAnimatedImage = {
-            let url = NSBundle.mainBundle().URLForResource("dancing_abe", withExtension: "gif")
-            let data = NSData(contentsOfURL: url!)
+            let url = Bundle.main.url(forResource: "dancing_abe", withExtension: "gif")
+            let data = try? Data(contentsOf: url!)
             let _image = FLAnimatedImage(animatedGIFData: data)
-            return _image
+            return _image!
         }()
        
-        imageView.contentMode = .ScaleAspectFit
+        imageView.contentMode = .scaleAspectFit
         imageView.animatedImage = image
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(imageView)
-        imageView.heightAnchor.constraintEqualToConstant(300).active = true
-        imageView.widthAnchor.constraintEqualToConstant(300).active = true
-        imageView.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
-        imageView.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor).active = true
+        imageView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let delay = dispatch_time(DISPATCH_TIME_NOW, Int64(3 * Double(NSEC_PER_SEC)))
-        dispatch_after(delay, dispatch_get_main_queue()) { [weak self] in
+        let delay = DispatchTime.now() + Double(Int64(3 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: delay) { [weak self] in
             let trendingViewController = GIFCollectionViewController()
             trendingViewController.API = self?.API
             let navigationController = UINavigationController(rootViewController: trendingViewController)
-            self?.presentViewController(navigationController, animated: true, completion: nil)
+            self?.present(navigationController, animated: true, completion: nil)
         }
     }
 }

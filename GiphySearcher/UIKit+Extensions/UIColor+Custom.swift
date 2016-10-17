@@ -10,12 +10,12 @@ struct Color {
     struct Gray {
         
         /// Red: 230, Green: 230, Blue: 230
-        static let Light = UIColor.rgba(230, green: 230, blue: 230, alpha: 1)
+        static let Light = UIColor.rgba(red: 230, green: 230, blue: 230, alpha: 1)
         
         /// Red: 200, Green: 200, Blue: 200
-        static let Medium = UIColor.rgba(208, green: 208, blue: 208, alpha: 1)
+        static let Medium = UIColor.rgba(red: 208, green: 208, blue: 208, alpha: 1)
         
         /// Red: 128, Green: 128, Blue: 128
-        static let Dark = UIColor.rgba(128, green: 128, blue: 128, alpha: 1)
+        static let Dark = UIColor.rgba(red: 128, green: 128, blue: 128, alpha: 1)
     }
 }
