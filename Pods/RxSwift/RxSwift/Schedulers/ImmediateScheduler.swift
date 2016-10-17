@@ -1,6 +1,6 @@
 //
 //  ImmediateScheduler.swift
-//  Rx
+//  RxSwift
 //
 //  Created by Krunoslav Zaher on 10/17/15.
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
@@ -25,13 +25,13 @@ private class ImmediateScheduler : ImmediateSchedulerType {
     - parameter action: Action to be executed.
     - returns: The disposable object used to cancel the scheduled action (best effort).
     */
-    func schedule<StateType>(state: StateType, action: (StateType) -> Disposable) -> Disposable {
+    func schedule<StateType>(_ state: StateType, action: @escaping (StateType) -> Disposable) -> Disposable {
         let disposable = SingleAssignmentDisposable()
         _asyncLock.invoke(AnonymousInvocable {
-            if disposable.disposed {
+            if disposable.isDisposed {
                 return
             }
-            disposable.disposable = action(state)
+            disposable.setDisposable(action(state))
         })
 
         return disposable

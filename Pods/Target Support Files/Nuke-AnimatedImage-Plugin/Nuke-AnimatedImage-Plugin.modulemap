@@ -1,6 +1,0 @@
-framework module NukeAnimatedImagePlugin {
-  umbrella header "Nuke-AnimatedImage-Plugin-umbrella.h"
-
-  export *
-  module * { export * }
-}

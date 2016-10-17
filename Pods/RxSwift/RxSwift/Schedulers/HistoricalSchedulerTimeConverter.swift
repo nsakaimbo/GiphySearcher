@@ -1,6 +1,6 @@
 //
 //  HistoricalSchedulerTimeConverter.swift
-//  Rx
+//  RxSwift
 //
 //  Created by Krunoslav Zaher on 12/27/15.
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
@@ -11,7 +11,7 @@ import Foundation
 /**
  Converts historial virtual time into real time. 
  
- Since historical virtual time is also measured in `NSDate`, this converter is identity function.
+ Since historical virtual time is also measured in `Date`, this converter is identity function.
  */
 public struct HistoricalSchedulerTimeConverter : VirtualTimeConverterType {
     /**
@@ -28,7 +28,7 @@ public struct HistoricalSchedulerTimeConverter : VirtualTimeConverterType {
      Returns identical value of argument passed because historical virtual time is equal to real time, just 
      decoupled from local machine clock.
     */
-    public func convertFromVirtualTime(virtualTime: VirtualTimeUnit) -> RxTime {
+    public func convertFromVirtualTime(_ virtualTime: VirtualTimeUnit) -> RxTime {
         return virtualTime
     }
 
@@ -36,7 +36,7 @@ public struct HistoricalSchedulerTimeConverter : VirtualTimeConverterType {
      Returns identical value of argument passed because historical virtual time is equal to real time, just 
      decoupled from local machine clock.
     */
-    public func convertToVirtualTime(time: RxTime) -> VirtualTimeUnit {
+    public func convertToVirtualTime(_ time: RxTime) -> VirtualTimeUnit {
         return time
     }
 
@@ -44,7 +44,7 @@ public struct HistoricalSchedulerTimeConverter : VirtualTimeConverterType {
      Returns identical value of argument passed because historical virtual time is equal to real time, just 
      decoupled from local machine clock.
     */
-    public func convertFromVirtualTimeInterval(virtualTimeInterval: VirtualTimeIntervalUnit) -> RxTimeInterval {
+    public func convertFromVirtualTimeInterval(_ virtualTimeInterval: VirtualTimeIntervalUnit) -> RxTimeInterval {
         return virtualTimeInterval
     }
 
@@ -52,32 +52,32 @@ public struct HistoricalSchedulerTimeConverter : VirtualTimeConverterType {
      Returns identical value of argument passed because historical virtual time is equal to real time, just 
      decoupled from local machine clock.
     */
-    public func convertToVirtualTimeInterval(timeInterval: RxTimeInterval) -> VirtualTimeIntervalUnit {
+    public func convertToVirtualTimeInterval(_ timeInterval: RxTimeInterval) -> VirtualTimeIntervalUnit {
         return timeInterval
     }
 
     /**
-     Offsets `NSDate` by time interval.
+     Offsets `Date` by time interval.
      
      - parameter time: Time.
      - parameter timeInterval: Time interval offset.
      - returns: Time offsetted by time interval.
     */
-    public func offsetVirtualTime(time time: VirtualTimeUnit, offset: VirtualTimeIntervalUnit) -> VirtualTimeUnit {
-        return time.dateByAddingTimeInterval(offset)
+    public func offsetVirtualTime(_ time: VirtualTimeUnit, offset: VirtualTimeIntervalUnit) -> VirtualTimeUnit {
+        return time.addingTimeInterval(offset)
     }
 
     /**
-     Compares two `NSDate`s.
+     Compares two `Date`s.
     */
-    public func compareVirtualTime(lhs: VirtualTimeUnit, _ rhs: VirtualTimeUnit) -> VirtualTimeComparison {
-        switch lhs.compare(rhs) {
-        case .OrderedAscending:
-            return .LessThan
-        case .OrderedSame:
-            return .Equal
-        case .OrderedDescending:
-            return .GreaterThan
+    public func compareVirtualTime(_ lhs: VirtualTimeUnit, _ rhs: VirtualTimeUnit) -> VirtualTimeComparison {
+        switch lhs.compare(rhs as Date) {
+        case .orderedAscending:
+            return .lessThan
+        case .orderedSame:
+            return .equal
+        case .orderedDescending:
+            return .greaterThan
         }
     }
 }

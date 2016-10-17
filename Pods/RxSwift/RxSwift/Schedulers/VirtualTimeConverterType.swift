@@ -1,6 +1,6 @@
 //
 //  VirtualTimeConverterType.swift
-//  Rx
+//  RxSwift
 //
 //  Created by Krunoslav Zaher on 12/23/15.
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
@@ -25,18 +25,18 @@ public protocol VirtualTimeConverterType {
     /**
      Converts virtual time to real time.
      
-     - parameter virtualTime: Virtual time to convert to `NSDate`.
-     - returns: `NSDate` corresponding to virtual time.
+     - parameter virtualTime: Virtual time to convert to `Date`.
+     - returns: `Date` corresponding to virtual time.
     */
-    func convertFromVirtualTime(virtualTime: VirtualTimeUnit) -> RxTime
+    func convertFromVirtualTime(_ virtualTime: VirtualTimeUnit) -> RxTime
 
     /**
      Converts real time to virtual time.
      
-     - parameter time: `NSDate` to convert to virtual time.
-     - returns: Virtual time corresponding to `NSDate`.
+     - parameter time: `Date` to convert to virtual time.
+     - returns: Virtual time corresponding to `Date`.
     */
-    func convertToVirtualTime(time: RxTime) -> VirtualTimeUnit
+    func convertToVirtualTime(_ time: RxTime) -> VirtualTimeUnit
 
     /**
      Converts from virtual time interval to `NSTimeInterval`.
@@ -44,7 +44,7 @@ public protocol VirtualTimeConverterType {
      - parameter virtualTimeInterval: Virtual time interval to convert to `NSTimeInterval`.
      - returns: `NSTimeInterval` corresponding to virtual time interval.
     */
-    func convertFromVirtualTimeInterval(virtualTimeInterval: VirtualTimeIntervalUnit) -> RxTimeInterval
+    func convertFromVirtualTimeInterval(_ virtualTimeInterval: VirtualTimeIntervalUnit) -> RxTimeInterval
 
     /**
      Converts from virtual time interval to `NSTimeInterval`.
@@ -52,7 +52,7 @@ public protocol VirtualTimeConverterType {
      - parameter timeInterval: `NSTimeInterval` to convert to virtual time interval.
      - returns: Virtual time interval corresponding to time interval.
     */
-    func convertToVirtualTimeInterval(timeInterval: RxTimeInterval) -> VirtualTimeIntervalUnit
+    func convertToVirtualTimeInterval(_ timeInterval: RxTimeInterval) -> VirtualTimeIntervalUnit
 
     /**
      Offsets virtual time by virtual time interval.
@@ -61,34 +61,34 @@ public protocol VirtualTimeConverterType {
      - parameter offset: Virtual time interval.
      - returns: Time corresponding to time offsetted by virtual time interval.
     */
-    func offsetVirtualTime(time time: VirtualTimeUnit, offset: VirtualTimeIntervalUnit) -> VirtualTimeUnit
+    func offsetVirtualTime(_ time: VirtualTimeUnit, offset: VirtualTimeIntervalUnit) -> VirtualTimeUnit
 
     /**
-     This is aditional abstraction because `NSDate` is unfortunately not comparable.
-     Extending `NSDate` with `Comparable` would be too risky because of possible collisions with other libraries.
+     This is aditional abstraction because `Date` is unfortunately not comparable.
+     Extending `Date` with `Comparable` would be too risky because of possible collisions with other libraries.
     */
-    func compareVirtualTime(lhs: VirtualTimeUnit, _ rhs: VirtualTimeUnit) -> VirtualTimeComparison
+    func compareVirtualTime(_ lhs: VirtualTimeUnit, _ rhs: VirtualTimeUnit) -> VirtualTimeComparison
 }
 
 /**
  Virtual time comparison result.
 
- This is aditional abstraction because `NSDate` is unfortunately not comparable.
- Extending `NSDate` with `Comparable` would be too risky because of possible collisions with other libraries.
+ This is aditional abstraction because `Date` is unfortunately not comparable.
+ Extending `Date` with `Comparable` would be too risky because of possible collisions with other libraries.
 */
 public enum VirtualTimeComparison {
     /**
      lhs < rhs.
     */
-    case LessThan
+    case lessThan
     /**
      lhs == rhs.
     */
-    case Equal
+    case equal
     /**
      lhs > rhs.
     */
-    case GreaterThan
+    case greaterThan
 }
 
 extension VirtualTimeComparison {
@@ -96,20 +96,20 @@ extension VirtualTimeComparison {
      lhs < rhs.
     */
     var lessThen: Bool {
-        return self == .LessThan
+        return self == .lessThan
     }
 
     /**
     lhs > rhs
     */
     var greaterThan: Bool {
-        return self == .GreaterThan
+        return self == .greaterThan
     }
 
     /**
      lhs == rhs
     */
     var equal: Bool {
-        return self == .Equal
+        return self == .equal
     }
 }
