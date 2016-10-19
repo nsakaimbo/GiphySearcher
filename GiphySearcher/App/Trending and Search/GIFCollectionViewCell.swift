@@ -1,4 +1,5 @@
-import FLAnimatedImage
+import Nuke
+import NukeFLAnimatedImagePlugin
 import RxCocoa
 import RxSwift
 import NSObject_Rx
@@ -6,10 +7,10 @@ import UIKit
 
 class GIFCollectionViewCell: UICollectionViewCell {
     
-    typealias DownloadImageClosure = (_ url: URL?, _ imageView: FLAnimatedImageView) -> ()
-    typealias CancelDownloadImageClosure = (_ imageView: FLAnimatedImageView) -> ()
+    typealias DownloadImageClosure = (_ url: URL?, _ imageView: AnimatedImageView) -> ()
+    typealias CancelDownloadImageClosure = (_ imageView: AnimatedImageView) -> ()
     
-    let imageView: FLAnimatedImageView = GIFCollectionViewCell._imageView()
+    let imageView: AnimatedImageView = GIFCollectionViewCell._imageView()
 
     // TODO: add to subview
     let icon: UIImageView = GIFCollectionViewCell._icon()
@@ -59,8 +60,8 @@ class GIFCollectionViewCell: UICollectionViewCell {
         setupSubscriptions()
     }
     
-    class func _imageView() -> FLAnimatedImageView {
-        let imageView = FLAnimatedImageView()
+    class func _imageView() -> AnimatedImageView {
+        let imageView = AnimatedImageView()
         imageView.contentMode = .scaleAspectFill
         return imageView
     }

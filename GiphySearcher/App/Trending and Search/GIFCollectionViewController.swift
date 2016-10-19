@@ -1,5 +1,5 @@
-import FLAnimatedImage
 import Nuke
+import NukeFLAnimatedImagePlugin
 import RxCocoa
 import RxSwift
 import UIKit
@@ -35,10 +35,10 @@ final class GIFCollectionViewController: UIViewController {
 
     var downloadImage: GIFCollectionViewCell.DownloadImageClosure = { (url, imageView) in
         if let url = url {
-            Nuke.loadImage(with: url, into: imageView)
-        }
-        else {
-            imageView.image = nil
+            AnimatedImage.manager.loadImage(with: url, into: imageView)
+            AnimatedImage.manager.loadImage(with: url, into: imageView) { [weak imageView] in
+                imageView?.handle(response: $0, isFromMemoryCache: $1)
+            }
         }
     }
     
@@ -46,6 +46,7 @@ final class GIFCollectionViewController: UIViewController {
     // Note 10/17/16: Explicitly canceling the download may be unecessary with the updated implementation as noted above.
     var cancelDownloadImage: GIFCollectionViewCell.CancelDownloadImageClosure = { imageView in
         Nuke.cancelRequest(for: imageView)
+        imageView.imageView.image = nil
     }
     
     var viewModel: ViewModelType!
@@ -109,7 +110,7 @@ final class GIFCollectionViewController: UIViewController {
             })
             .addDisposableTo(rx_disposeBag)
         
-        layoutCustomViewProperties()
+        addSubviews()
     }
 
     func setViewModelSubscriptions() {
@@ -121,24 +122,12 @@ final class GIFCollectionViewController: UIViewController {
             .addDisposableTo(rx_disposeBag)
     }
 
-    /// Validates search query text.
-    /// Returns `true` if text is non-nil and non-empty
-    fileprivate func validate(_ text: String?) -> Bool {
-        
-        if let text = text,
-            !text.isEmpty {
-            return true
-        }
-        
-        return false
-    }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         searchTextField?.text = nil
     }
     
-    fileprivate func layoutCustomViewProperties() {
+    fileprivate func addSubviews() {
        
         searchQueryHeader = type(of:self)._searchQueryHeader()
         
