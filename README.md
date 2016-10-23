@@ -7,7 +7,8 @@ Tinkering wtih MVVM and the [Giphy API](https://github.com/Giphy/GiphyAPI#search
 </p>
 
 ###Requirements
- * Xcode 7.3.1
+ * Swift 3
+ * Xcode 8.0
  * iOS 9.3
 
 ###Pods: 
@@ -46,4 +47,4 @@ This was a fun little project. Major kudos to the Artsy team for open-sourcing [
 <img src="/Documentation/tumbleweed.gif"</img>
 </p>
 
-No tests yet! But I've tried to very deliberately expose dependencies (beyond being a natural side effect of MVVM). Also - one of the benefits of using Moya is how it treats testing as a first-class citizen by requiring you to stub your network requests. I used Paw, which is a handy little Mac utility that helps you create JSON files for stubbing endpoint responses. [The more I learn about testing](http://nsakaimbo.me/blog/2016/6/28/unit-testing-where-to-start-part-1), the more I believe in TDD. But for now, my tests will have to wait - leaving for [Belize](https://www.travelbelize.org) in a couple of hours!
+No tests yet! But coming soon. In the mean time, I've tried to deliberately expose my dependencies, and one of the benefits of Moya is how it treats testing as a first-class citizen by requiring network requests to be stubbed. I used Paw, which is a handy little Mac utility that helps create JSON files for stubbing endpoint responses. [The more I learn about testing](http://nsakaimbo.me/blog/2016/6/28/unit-testing-where-to-start-part-1), the more I believe in TDD. However, the goal of this project was to focus on MVVM concepts and tools, but I aim to add tests in the near future.
