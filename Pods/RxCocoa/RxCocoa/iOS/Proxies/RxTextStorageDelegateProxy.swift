@@ -1,6 +1,6 @@
 //
 //  RxTextStorageDelegateProxy.swift
-//  Rx
+//  RxCocoa
 //
 //  Created by Segii Shulga on 12/30/15.
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
@@ -23,7 +23,7 @@ public class RxTextStorageDelegateProxy
     /**
      For more information take a look at `DelegateProxyType`.
      */
-    public class func setCurrentDelegate(delegate: AnyObject?, toObject object: AnyObject) {
+    public class func setCurrentDelegate(_ delegate: AnyObject?, toObject object: AnyObject) {
         let textStorage: NSTextStorage = castOrFatalError(object)
         textStorage.delegate = castOptionalOrFatalError(delegate)
     }
@@ -31,7 +31,7 @@ public class RxTextStorageDelegateProxy
     /**
      For more information take a look at `DelegateProxyType`.
      */
-    public class func currentDelegateFor(object: AnyObject) -> AnyObject? {
+    public class func currentDelegateFor(_ object: AnyObject) -> AnyObject? {
         let textStorage: NSTextStorage = castOrFatalError(object)
         return textStorage.delegate
     }

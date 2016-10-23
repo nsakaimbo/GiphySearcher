@@ -2,13 +2,13 @@ import UIKit
 
 extension GIFCollectionViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfGIFs
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(String(GIFCollectionViewCell), forIndexPath: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: GIFCollectionViewCell.self), for: indexPath)
         
         if let cell = cell as? GIFCollectionViewCell {
             cell.downloadImage = downloadImage
@@ -19,7 +19,7 @@ extension GIFCollectionViewController: UICollectionViewDataSource, UICollectionV
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let GIF = viewModel.GIFAtIndexPath(indexPath)
         
@@ -31,7 +31,7 @@ extension GIFCollectionViewController: UICollectionViewDataSource, UICollectionV
         return CGSize(width: 100, height: 100)
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     }
 }

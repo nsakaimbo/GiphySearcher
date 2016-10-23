@@ -6,44 +6,49 @@ import Moya
 private let API_KEY = "dc6zaTOxFJmzC"
 
 enum GiphyAPI {
-    case Search(query: String)
-    case Trending
+    case search(query: String)
+    case trending
 }
 
 extension GiphyAPI: TargetType {
     
-    var baseURL: NSURL { return NSURL(string: "https://api.giphy.com/v1/gifs")! }
+    public var task: Task {
+        return .request
+    }
+
+    
+    var baseURL: URL { return URL(string: "https://api.giphy.com/v1/gifs")! }
     
     var path: String {
         switch self {
-        case .Search:
+        case .search:
             return "/search"
-        case .Trending:
+        case .trending:
             return "/trending"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .Search, .Trending:
+        case .search, .trending:
             return .GET
         }
     }
     
-    var parameters: [String: AnyObject]? {
+    var parameters: [String: Any]? {
         switch self {
-        case .Search (let query):
-            return ["q": query.PlusEncodedString, "api_key": API_KEY, "limit": 100]
-        case .Trending:
-            return ["api_key": API_KEY, "limit": 100]
+        case .search (let query):
+            return ["q": query.PlusEncodedString as AnyObject, "api_key": API_KEY, "limit": 100]
+        case .trending:
+            return ["api_key": API_KEY as AnyObject, "limit": 100]
         }
     }
     
-    var sampleData: NSData {
+    var sampleData: Data {
         switch self {
-        case .Search:
+        case .search:
             return stubbedResponse("Search")
-        case .Trending:
+        case .trending:
             return stubbedResponse("Trending")
         }
     }
@@ -53,24 +58,24 @@ extension GiphyAPI: TargetType {
 //    }
    
     // Helper for stubbed responses
-    private func stubbedResponse(filename: String) -> NSData! {
+    fileprivate func stubbedResponse(_ filename: String) -> Data! {
         class TestClass: NSObject {}
         
-        let bundle = NSBundle(forClass: TestClass.self)
-        let path = bundle.pathForResource(filename, ofType: "json")
-        return NSData(contentsOfFile: path!)
+        let bundle = Bundle(for: TestClass.self)
+        let path = bundle.path(forResource: filename, ofType: "json")
+        return (try? Data(contentsOf: URL(fileURLWithPath: path!)))
     }
 }
 
 extension String {
     
     var TrimmedString: String {
-        return self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
     
     var PlusEncodedString: String {
         return self
             .TrimmedString
-            .stringByReplacingOccurrencesOfString(" ", withString: "+")
+            .replacingOccurrences(of: " ", with: "+")
     }
 }

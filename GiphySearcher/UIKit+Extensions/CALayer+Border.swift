@@ -3,28 +3,28 @@ import UIKit
 extension CALayer {
     
     /// Adds borders to specified edges of a layer object
-    func addBorder(edge: UIRectEdge, color: UIColor, thickness: CGFloat) {
+    func addBorder(_ edge: UIRectEdge, color: UIColor, thickness: CGFloat) {
         
         let border = CALayer();
         
         switch edge {
-        case UIRectEdge.Top:
-            border.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), thickness);
+        case UIRectEdge.top:
+            border.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: thickness);
             break
-        case UIRectEdge.Bottom:
-            border.frame = CGRectMake(0, CGRectGetHeight(self.frame) - thickness, CGRectGetWidth(self.frame), thickness)
+        case UIRectEdge.bottom:
+            border.frame = CGRect(x: 0, y: self.frame.height - thickness, width: self.frame.width, height: thickness)
             break
-        case UIRectEdge.Left:
-            border.frame = CGRectMake(0, 0, thickness, CGRectGetHeight(self.frame))
+        case UIRectEdge.left:
+            border.frame = CGRect(x: 0, y: 0, width: thickness, height: self.frame.height)
             break
-        case UIRectEdge.Right:
-            border.frame = CGRectMake(CGRectGetWidth(self.frame) - thickness, 0, thickness, CGRectGetHeight(self.frame))
+        case UIRectEdge.right:
+            border.frame = CGRect(x: self.frame.width - thickness, y: 0, width: thickness, height: self.frame.height)
             break
         default:
             break
         }
         
-        border.backgroundColor = color.CGColor;
+        border.backgroundColor = color.cgColor;
         
         self.addSublayer(border)
     }

@@ -3,10 +3,10 @@ import RxCocoa
 import RxSwift
 import NSObject_Rx
 
-private let dateFormatter: NSDateFormatter = {
-    let formatter = NSDateFormatter()
+private let dateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
     formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-    formatter.timeZone = NSTimeZone(name: "UTC")
+    formatter.timeZone = TimeZone(identifier: "UTC")
     return formatter
 }()
 
@@ -29,8 +29,8 @@ final class GIFViewModel: NSObject {
         super.init()
     }
    
-    var thumbnailURL: NSURL? {
-        return NSURL(string: self.gif.url_thumbnail)
+    var thumbnailURL: URL? {
+        return URL(string: self.gif.url_thumbnail)
     }
     
     // MARK: Helpers
@@ -38,23 +38,23 @@ final class GIFViewModel: NSObject {
     // Note: Giphy was founded in February 2013. The API appears to use a placeholder trending date of 1970-01-01.
     // We return trending == true if date is later than or equal to company created date as a proxy.
     // https://en.wikipedia.org/wiki/Giphy#Beginnings_and_early_history
-    private class func setHasEverTrended(gif:GIF) -> Bool {
-        guard let date = dateFormatter.dateFromString(gif.trending_datetime) else {
+    fileprivate class func setHasEverTrended(_ gif:GIF) -> Bool {
+        guard let date = dateFormatter.date(from: gif.trending_datetime) else {
             return false
         }
         return compare(date)
     }
     
-    private class func compare(date: NSDate) -> Bool {
+    fileprivate class func compare(_ date: Date) -> Bool {
         
-        let components = NSDateComponents()
+        var components = DateComponents()
         components.day = 1
         components.month = 2
         components.year = 2013
-        let compareDate = NSCalendar.currentCalendar().dateFromComponents(components)!
+        let compareDate = Calendar.current.date(from: components)!
         
         switch date.compare(compareDate) {
-        case .OrderedSame, .OrderedDescending:
+        case .orderedSame, .orderedDescending:
             return true
         default:
             return false

@@ -45,7 +45,7 @@ final class GIF: NSObject, JSONAbleType {
         super.init()
     }
     
-    static func fromJSON(json: [String: AnyObject]) -> GIF {
+    static func fromJSON(_ json: [String: AnyObject]) -> GIF {
         let json = JSON(json)
         
         let id = json["id"].stringValue

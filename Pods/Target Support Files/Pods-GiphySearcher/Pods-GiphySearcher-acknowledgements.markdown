@@ -53,7 +53,7 @@ SOFTWARE.
 
 The MIT License (MIT)
 
-Copyright (c) 2015 Artsy, Ash Furrow
+Copyright (c) 2016 Artsy, Ash Furrow
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -125,7 +125,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 
-## Nuke-AnimatedImage-Plugin
+## Nuke-FLAnimatedImage-Plugin
 
 The MIT License (MIT)
 
@@ -203,7 +203,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 The MIT License (MIT)
 
-Copyright (c) 2014 Ruoyu Fu
+Copyright (c) 2016 Ruoyu Fu
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -2,13 +2,13 @@ import UIKit
 
 extension UICollectionView {
     
-    class func trendingCollectionViewWithDelegateDatasource(delegateDataSource: GIFCollectionViewController) -> UICollectionView {
+    class func trendingCollectionViewWithDelegateDatasource(_ delegateDataSource: GIFCollectionViewController) -> UICollectionView {
         
         let layout = UICollectionViewFlowLayout()
-        let collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
+        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         
-        collectionView.registerClass(GIFCollectionViewCell.self, forCellWithReuseIdentifier: String(GIFCollectionViewCell))
-        collectionView.backgroundColor = .clearColor()
+        collectionView.register(GIFCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: GIFCollectionViewCell.self))
+        collectionView.backgroundColor = .clear
         collectionView.dataSource = delegateDataSource
         collectionView.delegate = delegateDataSource
         collectionView.alwaysBounceVertical = true
