@@ -16,6 +16,7 @@ extension GiphyAPI: TargetType {
         return .request
     }
 
+    var parameterEncoding: ParameterEncoding { return URLEncoding.default }
     
     var baseURL: URL { return URL(string: "https://api.giphy.com/v1/gifs")! }
     
@@ -31,7 +32,7 @@ extension GiphyAPI: TargetType {
     var method: Moya.Method {
         switch self {
         case .search, .trending:
-            return .GET
+            return .get
         }
     }
     

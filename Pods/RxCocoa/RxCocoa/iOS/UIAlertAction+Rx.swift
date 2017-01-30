@@ -6,8 +6,6 @@
 //  Copyright © 2016 Krunoslav Zaher. All rights reserved.
 //
 
-import Foundation
-
 #if os(iOS) || os(tvOS)
 
 import Foundation
@@ -19,10 +17,8 @@ import RxSwift
 
 extension Reactive where Base: UIAlertAction {
 
-    /**
-     Bindable sink for `enabled` property.
-     */
-    public var enabled: UIBindingObserver<Base, Bool> {
+    /// Bindable sink for `enabled` property.
+    public var isEnabled: UIBindingObserver<Base, Bool> {
         return UIBindingObserver(UIElement: self.base) { alertAction, value in
             alertAction.isEnabled = value
         }

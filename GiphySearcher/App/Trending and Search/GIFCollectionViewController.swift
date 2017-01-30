@@ -35,7 +35,6 @@ final class GIFCollectionViewController: UIViewController {
 
     var downloadImage: GIFCollectionViewCell.DownloadImageClosure = { (url, imageView) in
         if let url = url {
-            AnimatedImage.manager.loadImage(with: url, into: imageView)
             AnimatedImage.manager.loadImage(with: url, into: imageView) { [weak imageView] in
                 imageView?.handle(response: $0, isFromMemoryCache: $1)
             }

@@ -101,7 +101,7 @@ class GIFCollectionViewCell: UICollectionViewCell {
             // icon is hidden by default
             return true
         }
-        .bindTo(self.icon.rx.hidden)
+        .bindTo(self.icon.rx.isHidden)
         .addDisposableTo(reuseBag)
     }
 }
