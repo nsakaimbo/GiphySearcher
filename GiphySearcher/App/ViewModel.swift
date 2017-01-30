@@ -15,7 +15,7 @@ protocol ViewModelType {
     func GIFViewModelAtIndexPath(_ indexPath: IndexPath, canShowTrendingIcon: Bool) -> GIFViewModel
 }
 
-class ViewModel: NSObject, ViewModelType {
+final class ViewModel: NSObject, ViewModelType {
     
     var API: Networking
    

@@ -12,7 +12,6 @@ class GIFCollectionViewCell: UICollectionViewCell {
     
     let imageView: AnimatedImageView = GIFCollectionViewCell._imageView()
 
-    // TODO: add to subview
     let icon: UIImageView = GIFCollectionViewCell._icon()
     
     var downloadImage: DownloadImageClosure?
