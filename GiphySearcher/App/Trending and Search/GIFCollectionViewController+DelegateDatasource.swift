@@ -1,6 +1,7 @@
+import AVFoundation
 import UIKit
 
-extension GIFCollectionViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension GIFCollectionViewController: UICollectionViewDataSource, UICollectionViewDelegate, GIFLayoutDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfGIFs
@@ -18,20 +19,16 @@ extension GIFCollectionViewController: UICollectionViewDataSource, UICollectionV
         }
         return cell
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
+   
+    func collectionView(_ collectionView: UICollectionView, heightForGIFAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat {
         let GIF = viewModel.GIFAtIndexPath(indexPath)
+        let boundingRect =  CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
         
-        if  let w = Int(GIF.thumbnail_width),
-            let h = Int(GIF.thumbnail_height) {
-            return CGSize(width: w, height: h)
+        if let w = Int(GIF.thumbnail_width), let h = Int(GIF.thumbnail_height) {
+            let size = CGSize(width: w, height: h)
+            let rect = AVMakeRect(aspectRatio: size, insideRect: boundingRect)
+            return rect.size.height
         }
-        
-        return CGSize(width: 100, height: 100)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        return 100
     }
 }

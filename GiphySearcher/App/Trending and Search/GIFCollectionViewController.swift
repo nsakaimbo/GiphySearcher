@@ -67,6 +67,10 @@ final class GIFCollectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let layout = collectionView.collectionViewLayout as? GIFLayout {
+            layout.delegate = self
+        }
+        
         edgesForExtendedLayout = .top
         view.backgroundColor = .white
         
@@ -108,6 +112,9 @@ final class GIFCollectionViewController: UIViewController {
         viewModel
             .updatedContents
             .subscribe { (updated) in
+                if let layout = self.collectionView.collectionViewLayout as? GIFLayout {
+                    layout.resetAttributesCache()
+                }
                 self.collectionView.reloadData()
             }
             .addDisposableTo(rx_disposeBag)
