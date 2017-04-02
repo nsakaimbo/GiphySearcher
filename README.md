@@ -1,4 +1,4 @@
-#GiphySearcher
+# GiphySearcher
 
 Tinkering wtih MVVM and the [Giphy API](https://github.com/Giphy/GiphyAPI#search-endpoint).
 
@@ -6,17 +6,17 @@ Tinkering wtih MVVM and the [Giphy API](https://github.com/Giphy/GiphyAPI#search
 <img src="/Documentation/screenshot.png"</img>
 </p>
 
-###Requirements
+### Requirements
  * Swift 3
  * Xcode 8.0
  * iOS 9.3
 
-###Pods: 
+### Pods: 
  * Moya/RxSwift, Alamofire, SwiftyJSON (Networking)
  * FLAnimatedImage, Nuke/FLAnimatedImageExtension (Caching and animated GIF support)
  * RxCocoa, RxSwift, NSObject+Rx (Functional Reactive)
 
-###Installation
+### Installation
  * Clone this repo to your desktop
  * Open `GiphySearcher.xcworkspace`
  * Select an iPad device in the simulator. (For simplicity, the app is constrained to run on the iPad in portrait orientation)
@@ -28,7 +28,7 @@ Tinkering wtih MVVM and the [Giphy API](https://github.com/Giphy/GiphyAPI#search
 <img src="/Documentation/trending_icon.jpg"</img>
 </p>
  
-##Miscellaneous Technical Highlights 
+## Miscellaneous Technical Highlights 
 
 This was a fun little project. Major kudos to the Artsy team for open-sourcing [Eidolon/Kiosk](https://github.com/artsy/eidolon/tree/master/Kiosk), from which I learned a number of great design patterns (MVVM and otherwise).
 
@@ -36,13 +36,13 @@ This was a fun little project. Major kudos to the Artsy team for open-sourcing [
  * It seems both [RxCocoa](https://github.com/ReactiveX/RxSwift/tree/master/RxCocoa) and [RxSwift](https://github.com/ReactiveX/RxSwift) are worth using in a complementary way. I haven't developed a preference for either, yet, though.
  * *Framerates and GIF caching*: Getting smooth framerates was one of the trickiest parts! I ended up up evaluating a couple different pods. Out-of-the-box, [FLAnimatedImage](https://github.com/Flipboard/FLAnimatedImage) was smooth, but at the cost of high RAM usage (even when used with SDWebImage for caching). [Kingfisher](https://github.com/onevcat/Kingfisher) has some nice cache customization options and seemed to manage memory much better, but was too jittery. I settled on [Nuke](https://github.com/kean/Nuke) and its FLAnimatedImage extension as a middle ground and am pretty happy with the result.
  
-##Opportunities for Enhancement
+## Opportunities for Enhancement
  
  * Show larger version of GIF when selected. Currently, there is no interaction aside from search.
  * Enable API pagination (wasn't able to get around to this)
 
-##Unit Testing
-#...
+## Unit Testing
+# ...
 <p align="center">
 <img src="/Documentation/tumbleweed.gif"</img>
 </p>
