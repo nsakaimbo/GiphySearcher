@@ -135,10 +135,12 @@ final class GIFCollectionViewController: UIViewController {
         else {
             layoutHeader(searchQueryHeader)
         }
-        
+      
+       let padding: CGFloat = (UIDevice.current.userInterfaceIdiom == .phone) ? 10.0 : 40.0
+      
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(collectionView)
-        collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: headerHeight + navigationBarHeight + statusBarHeight + 40.0).isActive = true
+        collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: headerHeight + navigationBarHeight + statusBarHeight + padding).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
