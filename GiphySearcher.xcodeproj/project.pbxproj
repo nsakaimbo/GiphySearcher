@@ -39,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		21141C8AF41872932CBC66B7 /* Pods-GiphySearcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiphySearcher.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiphySearcher/Pods-GiphySearcher.debug.xcconfig"; sourceTree = "<group>"; };
+		5F37873D1EAFF1E000E7E797 /* GiphySearcher-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GiphySearcher-Bridging-Header.h"; sourceTree = "<group>"; };
 		5F4290F31D4060430077AEC2 /* CALayer+Border.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+Border.swift"; sourceTree = "<group>"; };
 		5F4290F51D40610B0077AEC2 /* UIColor+Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Custom.swift"; sourceTree = "<group>"; };
 		5F4290F71D40638F0077AEC2 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
@@ -190,6 +191,7 @@
 				5F4291011D40681D0077AEC2 /* AppNavigationBar.swift */,
 				5FEBE98D1D39715800CADCCE /* Assets.xcassets */,
 				5FEBE9921D39715800CADCCE /* Info.plist */,
+				5F37873D1EAFF1E000E7E797 /* GiphySearcher-Bridging-Header.h */,
 				5FEBE98F1D39715800CADCCE /* LaunchScreen.storyboard */,
 			);
 			path = GiphySearcher;
@@ -442,6 +444,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "GiphySearcher/GiphySearcher-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -483,6 +486,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "GiphySearcher/GiphySearcher-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

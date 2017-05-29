@@ -1,4 +1,3 @@
-import FLAnimatedImage
 import UIKit
 
 class AppViewController: UIViewController {
@@ -10,17 +9,11 @@ class AppViewController: UIViewController {
        
         view.backgroundColor = .white
         
-        let imageView = FLAnimatedImageView()
-        
-        let image: FLAnimatedImage = {
-            let url = Bundle.main.url(forResource: "dancing_abe", withExtension: "gif")
-            let data = try? Data(contentsOf: url!)
-            let _image = FLAnimatedImage(animatedGIFData: data)
-            return _image!
-        }()
+        let imageView = YYAnimatedImageView()
+        let url = Bundle.main.url(forResource: "dancing_abe", withExtension: "gif")
+        imageView.yy_imageURL = url
        
         imageView.contentMode = .scaleAspectFit
-        imageView.animatedImage = image
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(imageView)

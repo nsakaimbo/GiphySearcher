@@ -1,5 +1,3 @@
-import Nuke
-import NukeFLAnimatedImagePlugin
 import RxCocoa
 import RxSwift
 import UIKit
@@ -35,17 +33,12 @@ final class GIFCollectionViewController: UIViewController {
 
     var downloadImage: GIFCollectionViewCell.DownloadImageClosure = { (url, imageView) in
         if let url = url {
-            AnimatedImage.manager.loadImage(with: url, into: imageView) { [weak imageView] in
-                imageView?.handle(response: $0, isFromMemoryCache: $1)
-            }
+            imageView.yy_imageURL = url
         }
     }
-    
-    // From the Nuke docs: "Nuke.loadImage(with:into:) method cancels previous outstanding request associated with the target. No need to implement prepareForReuse"
-    // Note 10/17/16: Explicitly canceling the download may be unecessary with the updated implementation as noted above.
+  
     var cancelDownloadImage: GIFCollectionViewCell.CancelDownloadImageClosure = { imageView in
-        Nuke.cancelRequest(for: imageView)
-        imageView.imageView.image = nil
+      imageView.image = nil
     }
     
     var viewModel: ViewModelType!

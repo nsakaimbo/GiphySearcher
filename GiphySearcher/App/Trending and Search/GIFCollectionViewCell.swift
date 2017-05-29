@@ -1,5 +1,3 @@
-import Nuke
-import NukeFLAnimatedImagePlugin
 import RxCocoa
 import RxSwift
 import NSObject_Rx
@@ -7,10 +5,10 @@ import UIKit
 
 class GIFCollectionViewCell: UICollectionViewCell {
     
-    typealias DownloadImageClosure = (_ url: URL?, _ imageView: AnimatedImageView) -> ()
-    typealias CancelDownloadImageClosure = (_ imageView: AnimatedImageView) -> ()
+    typealias DownloadImageClosure = (_ url: URL?, _ imageView: YYAnimatedImageView) -> ()
+    typealias CancelDownloadImageClosure = (_ imageView: YYAnimatedImageView) -> ()
     
-    let imageView: AnimatedImageView = GIFCollectionViewCell._imageView()
+    let imageView: YYAnimatedImageView = GIFCollectionViewCell._imageView()
 
     let icon: UIImageView = GIFCollectionViewCell._icon()
     
@@ -59,8 +57,8 @@ class GIFCollectionViewCell: UICollectionViewCell {
         setupSubscriptions()
     }
     
-    class func _imageView() -> AnimatedImageView {
-        let imageView = AnimatedImageView()
+    class func _imageView() -> YYAnimatedImageView {
+        let imageView = YYAnimatedImageView()
         imageView.contentMode = .scaleAspectFill
         return imageView
     }

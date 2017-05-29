@@ -1,6 +1,4 @@
 import UIKit
-import Nuke
-import NukeFLAnimatedImagePlugin
 import RxSwift
 
 @UIApplicationMain
